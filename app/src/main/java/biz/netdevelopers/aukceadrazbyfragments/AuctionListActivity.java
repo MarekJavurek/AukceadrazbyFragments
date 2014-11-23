@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
 /**
  * An activity representing a list of Auctions. This activity
  * has different presentations for handset and tablet-size devices. On
