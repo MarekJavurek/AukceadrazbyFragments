@@ -84,7 +84,8 @@ public class VasmajetekProvider {
 
             dfto = new DownloadFilesTaskObject();
             try {
-                dfto.setUrl(new URL("http://netdevelopers.biz/_da/download.php")); // http://netdevelopers.biz/_da/download.php // http://ipv6.download.thinkbroadband.com/5MB.zip
+                dfto.setUrl(new URL("http://netdevelopers.biz/_da/download_test/10.dat"));
+                //dfto.setUrl(new URL("http://netdevelopers.biz/_da/download.php")); // http://netdevelopers.biz/_da/download.php // http://ipv6.download.thinkbroadband.com/5MB.zip
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
