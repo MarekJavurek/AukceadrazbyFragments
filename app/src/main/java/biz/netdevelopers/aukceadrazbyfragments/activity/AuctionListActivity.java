@@ -114,13 +114,13 @@ public class AuctionListActivity extends Activity
         int id = item.getItemId();
         if (id == R.id.action_filters) {
 
-            Intent intent = new Intent(this, Filtry.class);
+            Intent intent = new Intent(this, FiltersActivity.class);
             startActivity(intent);
 
             return true;
         } else if (id == R.id.action_setting) {
 
-            Intent intent = new Intent(this, Nastaveni.class);
+            Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
 
             return true;

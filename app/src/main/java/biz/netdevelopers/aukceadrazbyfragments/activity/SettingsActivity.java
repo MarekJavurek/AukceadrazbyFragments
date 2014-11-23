@@ -4,27 +4,26 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Switch;
-import android.widget.Toast;
 
 import biz.netdevelopers.aukceadrazbyfragments.R;
-import biz.netdevelopers.aukceadrazbyfragments.Utils;
+import biz.netdevelopers.aukceadrazbyfragments.Utilities;
 
 /**
  * Created by Winnie on 23.11.2014.
  */
-public class Nastaveni extends Activity {
+public class SettingsActivity extends Activity {
 
-    Utils u;
+    Utilities u;
     Switch s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nastaveni);
+        setContentView(R.layout.activity_settings);
 
         s = (Switch) findViewById(R.id.switch1);
 
-        u = new Utils(this);
+        u = new Utilities(this);
 
         String nastaveni_3g = u.loadSettings("nastaveni_3g");
 

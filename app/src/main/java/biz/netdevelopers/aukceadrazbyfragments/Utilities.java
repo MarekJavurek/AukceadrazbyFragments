@@ -13,12 +13,12 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;import java.lang.Exception;import java.lang.String;import java.lang.StringBuilder;
 
-public class Utils {
+public class Utilities {
 
     Context context;
 
     // konstruktor
-    public Utils(Context context) {
+    public Utilities(Context context) {
         this.context = context;
     }
 

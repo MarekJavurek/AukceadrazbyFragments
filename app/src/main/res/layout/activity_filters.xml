@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:padding="20dp"
-    tools:context="biz.netdevelopers.aukceadrazbyfragments.activity.Filtry">
+    tools:context="biz.netdevelopers.aukceadrazbyfragments.activity.FiltersActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"

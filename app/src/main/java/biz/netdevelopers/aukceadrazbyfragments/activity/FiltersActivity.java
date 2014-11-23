@@ -8,7 +8,7 @@ import android.widget.Toast;
 import biz.netdevelopers.aukceadrazbyfragments.UI.MultiSelectionSpinner;
 import biz.netdevelopers.aukceadrazbyfragments.R;
 
-public class Filtry extends Activity {
+public class FiltersActivity extends Activity {
 
     MultiSelectionSpinner f_kraje;
     MultiSelectionSpinner f_typ;
@@ -16,7 +16,7 @@ public class Filtry extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_filtry);
+        setContentView(R.layout.activity_filters);
 
 
         String[] kunda = {"Hl. m. Praha", "Středočeský", "Jihočeský", "Plzeňský", "Ústecký", "Královéhradecký", "Vysočina", "Olomoucký", "Moravskoslezský"};

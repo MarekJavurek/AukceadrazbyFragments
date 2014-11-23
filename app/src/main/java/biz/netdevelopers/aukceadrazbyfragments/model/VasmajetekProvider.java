@@ -21,7 +21,7 @@ import java.util.concurrent.ExecutionException;
 
 import biz.netdevelopers.aukceadrazbyfragments.DownloadFilesTask;
 import biz.netdevelopers.aukceadrazbyfragments.DownloadFilesTaskObject;
-import biz.netdevelopers.aukceadrazbyfragments.Utils;
+import biz.netdevelopers.aukceadrazbyfragments.Utilities;
 
 
 public class VasmajetekProvider {
@@ -41,7 +41,7 @@ public class VasmajetekProvider {
     // konstruktor
     public VasmajetekProvider(Context context) {
         this.context = context;
-        this.isOnline = new Utils(this.context).isOnline();
+        this.isOnline = new Utilities(this.context).isOnline();
     }
 
     public static Map<String, AuctionObject> ITEM_MAP = new HashMap<String, AuctionObject>();
@@ -132,7 +132,7 @@ public class VasmajetekProvider {
 
         } else {
             String lastUpdate = "?";
-            new Utils(this.context).TL("Nejsi online, poslední aktualizace dat: " + lastUpdate);
+            new Utilities(this.context).TL("Nejsi online, poslední aktualizace dat: " + lastUpdate);
             // TODO pokud nejsi online nacti data od posledne
         }
         return null;
@@ -145,7 +145,7 @@ public class VasmajetekProvider {
 
         ArrayList<AuctionObject> all = new ArrayList<AuctionObject>();
 
-        String json = Utils.getStringFromFile(dest);
+        String json = Utilities.getStringFromFile(dest);
 
         JSONArray data = new JSONArray(json);
 
