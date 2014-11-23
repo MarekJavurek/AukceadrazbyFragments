@@ -46,6 +46,7 @@ public class Utils {
         return sb.toString();
     }
 
+
     // fce na ziskani obsahu souboru do String promene
     public static String getStringFromFile(String filePath) throws Exception {
         File fl = new File(filePath);
