@@ -10,15 +10,41 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <biz.netdevelopers.aukceadrazbyfragments.MultiSelectionSpinner
-            android:id="@+id/f_kraje"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <biz.netdevelopers.aukceadrazbyfragments.MultiSelectionSpinner
-            android:id="@+id/f_typ"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kraje: " />
+
+            <biz.netdevelopers.aukceadrazbyfragments.MultiSelectionSpinner
+                android:id="@+id/f_kraje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Typy: " />
+
+            <biz.netdevelopers.aukceadrazbyfragments.MultiSelectionSpinner
+                android:id="@+id/f_typ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
 
 
         <Button
@@ -26,10 +52,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:layout_margin="20dp"
             android:gravity="center"
             android:onClick="onClick"
             android:padding="20dp"
-            android:layout_margin="20dp"
             android:text="Použít filtry"
             android:textAlignment="center" />
 

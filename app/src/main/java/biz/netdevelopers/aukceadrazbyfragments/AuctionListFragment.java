@@ -8,6 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
+import java.util.ArrayList;
+
+import biz.netdevelopers.aukceadrazbyfragments.adapters.AuctionAdapter;
 import biz.netdevelopers.aukceadrazbyfragments.model.VasmajetekProvider;
 
 /**
@@ -72,11 +75,11 @@ public class AuctionListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         // TODO: replace with a real list adapter.
-        setListAdapter(new ArrayAdapter<AuctionObject>(
-                getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                VasmajetekProvider.ITEMS));
+
+
+
+        setListAdapter(new AuctionAdapter(getActivity(), (ArrayList<AuctionObject>) VasmajetekProvider.ITEMS));
+
     }
 
     @Override

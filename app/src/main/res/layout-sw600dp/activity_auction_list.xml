@@ -16,10 +16,14 @@
 
     <fragment android:id="@+id/auction_list"
         android:name="biz.netdevelopers.aukceadrazbyfragments.AuctionListFragment"
-        android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
-        tools:layout="@android:layout/list_content" />
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:layout="@layout/list_auction" />
 
-    <FrameLayout android:id="@+id/auction_detail_container" android:layout_width="0dp"
-        android:layout_height="match_parent" android:layout_weight="3" />
+    <FrameLayout android:id="@+id/auction_detail_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3" />
 
 </LinearLayout>
