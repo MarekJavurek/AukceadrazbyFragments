@@ -1,10 +1,13 @@
-package biz.netdevelopers.aukceadrazbyfragments;
+package biz.netdevelopers.aukceadrazbyfragments.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 
 import android.view.MenuItem;
+
+import biz.netdevelopers.aukceadrazbyfragments.R;
+import biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionDetailFragment;
 
 
 /**
@@ -14,7 +17,7 @@ import android.view.MenuItem;
  * in a {@link AuctionListActivity}.
  * <p/>
  * This activity is mostly just a 'shell' activity containing nothing
- * more than a {@link AuctionDetailFragment}.
+ * more than a {@link biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionDetailFragment}.
  */
 public class AuctionDetailActivity extends Activity {
 

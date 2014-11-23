@@ -1,11 +1,12 @@
-package biz.netdevelopers.aukceadrazbyfragments;
+package biz.netdevelopers.aukceadrazbyfragments.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import biz.netdevelopers.aukceadrazbyfragments.UI.MultiSelectionSpinner;
+import biz.netdevelopers.aukceadrazbyfragments.R;
 
 public class Filtry extends Activity {
 

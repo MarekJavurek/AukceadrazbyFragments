@@ -1,4 +1,4 @@
-package biz.netdevelopers.aukceadrazbyfragments;
+package biz.netdevelopers.aukceadrazbyfragments.fragments;
 
 import android.os.Bundle;
 import android.app.Fragment;
@@ -8,12 +8,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
+import biz.netdevelopers.aukceadrazbyfragments.model.AuctionObject;
+import biz.netdevelopers.aukceadrazbyfragments.R;
 import biz.netdevelopers.aukceadrazbyfragments.model.VasmajetekProvider;
 
 /**
  * A fragment representing a single Auction detail screen.
- * This fragment is either contained in a {@link AuctionListActivity}
- * in two-pane mode (on tablets) or a {@link AuctionDetailActivity}
+ * This fragment is either contained in a {@link biz.netdevelopers.aukceadrazbyfragments.activity.AuctionListActivity}
+ * in two-pane mode (on tablets) or a {@link biz.netdevelopers.aukceadrazbyfragments.activity.AuctionDetailActivity}
  * on handsets.
  */
 public class AuctionDetailFragment extends Fragment {

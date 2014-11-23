@@ -1,4 +1,4 @@
-package biz.netdevelopers.aukceadrazbyfragments;
+package biz.netdevelopers.aukceadrazbyfragments.model;
 
 import java.lang.String;// TODO nutno doplnit všechny ostatní parametry
 

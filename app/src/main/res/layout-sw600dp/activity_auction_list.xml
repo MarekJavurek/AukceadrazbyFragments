@@ -15,7 +15,7 @@
     -->
 
     <fragment android:id="@+id/auction_list"
-        android:name="biz.netdevelopers.aukceadrazbyfragments.AuctionListFragment"
+        android:name="biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionListFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"

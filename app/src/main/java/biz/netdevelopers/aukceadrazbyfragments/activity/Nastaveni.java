@@ -1,10 +1,13 @@
-package biz.netdevelopers.aukceadrazbyfragments;
+package biz.netdevelopers.aukceadrazbyfragments.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import biz.netdevelopers.aukceadrazbyfragments.R;
+import biz.netdevelopers.aukceadrazbyfragments.Utils;
 
 /**
  * Created by Winnie on 23.11.2014.

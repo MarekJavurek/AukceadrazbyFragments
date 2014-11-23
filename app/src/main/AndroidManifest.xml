@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="biz.netdevelopers.aukceadrazbyfragments.AuctionListActivity"
+            android:name=".activity.AuctionListActivity"
             android:label="Aukce a Dražby" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,29 +27,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="biz.netdevelopers.aukceadrazbyfragments.AuctionDetailActivity"
+            android:name=".activity.AuctionDetailActivity"
             android:label="Detail"
-            android:parentActivityName="biz.netdevelopers.aukceadrazbyfragments.AuctionListActivity" >
+            android:parentActivityName=".activity.AuctionListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AuctionListActivity" />
         </activity>
 
         <activity
-            android:name="biz.netdevelopers.aukceadrazbyfragments.Filtry"
+            android:name=".activity.Filtry"
             android:label="Nastavení filtrů"
             android:theme="@style/AppThemeDialog"
-            android:parentActivityName="biz.netdevelopers.aukceadrazbyfragments.AuctionListActivity" >
+            android:parentActivityName=".activity.AuctionListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AuctionListActivity" />
         </activity>
 
         <activity
-            android:name="biz.netdevelopers.aukceadrazbyfragments.Nastaveni"
+            android:name=".activity.Nastaveni"
             android:label="Nastavení aplikace"
             android:theme="@style/AppThemeDialog"
-            android:parentActivityName="biz.netdevelopers.aukceadrazbyfragments.AuctionListActivity" >
+            android:parentActivityName=".activity.AuctionListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AuctionListActivity" />

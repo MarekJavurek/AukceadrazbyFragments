@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-import biz.netdevelopers.aukceadrazbyfragments.AuctionObject;
 import biz.netdevelopers.aukceadrazbyfragments.DownloadFilesTask;
 import biz.netdevelopers.aukceadrazbyfragments.DownloadFilesTaskObject;
 import biz.netdevelopers.aukceadrazbyfragments.Utils;

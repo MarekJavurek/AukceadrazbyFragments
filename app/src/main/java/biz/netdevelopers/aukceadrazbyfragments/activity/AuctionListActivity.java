@@ -1,4 +1,4 @@
-package biz.netdevelopers.aukceadrazbyfragments;
+package biz.netdevelopers.aukceadrazbyfragments.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,22 +8,25 @@ import android.view.MenuItem;
 
 import java.util.concurrent.ExecutionException;
 
+import biz.netdevelopers.aukceadrazbyfragments.R;
+import biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionDetailFragment;
+import biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionListFragment;
 import biz.netdevelopers.aukceadrazbyfragments.model.VasmajetekProvider;
 
 /**
  * An activity representing a list of Auctions. This activity
  * has different presentations for handset and tablet-size devices. On
  * handsets, the activity presents a list of items, which when touched,
- * lead to a {@link AuctionDetailActivity} representing
+ * lead to a {@link biz.netdevelopers.aukceadrazbyfragments.activity.AuctionDetailActivity} representing
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
  * <p/>
  * The activity makes heavy use of fragments. The list of items is a
- * {@link AuctionListFragment} and the item details
- * (if present) is a {@link AuctionDetailFragment}.
+ * {@link biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionListFragment} and the item details
+ * (if present) is a {@link biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionDetailFragment}.
  * <p/>
  * This activity also implements the required
- * {@link AuctionListFragment.Callbacks} interface
+ * {@link biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionListFragment.Callbacks} interface
  * to listen for item selections.
  */
 public class AuctionListActivity extends Activity

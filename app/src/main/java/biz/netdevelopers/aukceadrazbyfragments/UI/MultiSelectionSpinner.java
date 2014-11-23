@@ -1,4 +1,4 @@
-package biz.netdevelopers.aukceadrazbyfragments;
+package biz.netdevelopers.aukceadrazbyfragments.UI;
 
 import java.util.Arrays;
 import java.util.LinkedList;

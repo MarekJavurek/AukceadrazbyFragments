@@ -1,15 +1,15 @@
-package biz.netdevelopers.aukceadrazbyfragments;
+package biz.netdevelopers.aukceadrazbyfragments.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.app.ListFragment;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
 import java.util.ArrayList;
 
+import biz.netdevelopers.aukceadrazbyfragments.model.AuctionObject;
 import biz.netdevelopers.aukceadrazbyfragments.adapters.AuctionAdapter;
 import biz.netdevelopers.aukceadrazbyfragments.model.VasmajetekProvider;
 
@@ -17,7 +17,7 @@ import biz.netdevelopers.aukceadrazbyfragments.model.VasmajetekProvider;
  * A list fragment representing a list of Auctions. This fragment
  * also supports tablet devices by allowing list items to be given an
  * 'activated' state upon selection. This helps indicate which item is
- * currently being viewed in a {@link AuctionDetailFragment}.
+ * currently being viewed in a {@link biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionDetailFragment}.
  * <p/>
  * Activities containing this fragment MUST implement the {@link Callbacks}
  * interface.
