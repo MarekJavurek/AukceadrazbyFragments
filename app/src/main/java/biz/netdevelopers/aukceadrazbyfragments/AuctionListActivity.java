@@ -6,6 +6,10 @@ import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.concurrent.ExecutionException;
+
+import biz.netdevelopers.aukceadrazbyfragments.model.VasmajetekProvider;
+
 /**
  * An activity representing a list of Auctions. This activity
  * has different presentations for handset and tablet-size devices. On
@@ -35,6 +39,17 @@ public class AuctionListActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auction_list);
+
+        if (savedInstanceState == null ) {
+            VasmajetekProvider vmp = new VasmajetekProvider(this);
+            try {
+                vmp.getAll();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
         if (findViewById(R.id.auction_detail_container) != null) {
             // The detail container view will be present only in the
@@ -100,8 +115,7 @@ public class AuctionListActivity extends Activity
             startActivity(intent);
 
             return true;
-        }
-        else if (id == R.id.action_setting) {
+        } else if (id == R.id.action_setting) {
 
             Intent intent = new Intent(this, Nastaveni.class);
             startActivity(intent);

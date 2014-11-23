@@ -1,6 +1,7 @@
 package biz.netdevelopers.aukceadrazbyfragments;
 
 import java.lang.String;// TODO nutno doplnit všechny ostatní parametry
+
 public class AuctionObject {
     private int offer_id;
     private int version;
@@ -9,6 +10,11 @@ public class AuctionObject {
     private int advert_type;
     private int advert_subtype;
     private String locality_nuts;
+
+    @Override
+    public String toString() {
+        return this.advert_name;
+    }
 
     public int getOffer_id() {
         return offer_id;

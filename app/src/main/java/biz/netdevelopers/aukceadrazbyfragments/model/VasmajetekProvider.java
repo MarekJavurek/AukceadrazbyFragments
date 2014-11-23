@@ -6,10 +6,17 @@ import android.content.Context;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.lang.Exception;import java.lang.Integer;import java.lang.InterruptedException;import java.lang.Override;import java.lang.String;import java.net.MalformedURLException;
+import java.lang.Exception;
+import java.lang.Integer;
+import java.lang.InterruptedException;
+import java.lang.Override;
+import java.lang.String;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 import biz.netdevelopers.aukceadrazbyfragments.AuctionObject;
@@ -38,18 +45,30 @@ public class VasmajetekProvider {
         this.isOnline = new Utils(this.context).isOnline();
     }
 
-    public List<AuctionObject> getAllAuctionObject() {
-        List<AuctionObject> ITEMS = new ArrayList<AuctionObject>();
+    public static Map<String, AuctionObject> ITEM_MAP = new HashMap<String, AuctionObject>();
+    public static List<AuctionObject> ITEMS = new ArrayList<AuctionObject>();
 
+    static {
         AuctionObject a1 = new AuctionObject();
         a1.setOffer_id(66);
-        ITEMS.add(a1);
+        a1.setAdvert_name("Položka 1");
 
         AuctionObject a2 = new AuctionObject();
         a2.setOffer_id(88);
-        ITEMS.add(a2);
+        a2.setAdvert_name("Položka 2");
 
-        return ITEMS;    }
+        addItem(a1);
+        addItem(a2);
+    }
+
+
+
+
+
+    private static void addItem(AuctionObject item) {
+        ITEMS.add(item);
+        ITEM_MAP.put(String.valueOf(item.getOffer_id()), item);
+    }
 
     // ziskani seznamu vsech aukci
     public ArrayList<AuctionObject> getAll() throws ExecutionException, InterruptedException {

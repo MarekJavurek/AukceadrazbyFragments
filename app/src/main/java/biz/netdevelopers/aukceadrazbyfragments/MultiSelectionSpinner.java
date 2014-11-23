@@ -68,7 +68,7 @@ public class MultiSelectionSpinner extends Spinner implements
         _items = items;
         mSelection = new boolean[_items.length];
         simple_adapter.clear();
-        simple_adapter.add(_items[0]);
+        simple_adapter.add("-- Vyberte --"); // simple_adapter.add(_items[0]);
         Arrays.fill(mSelection, false);
     }
 
@@ -76,7 +76,7 @@ public class MultiSelectionSpinner extends Spinner implements
         _items = items.toArray(new String[items.size()]);
         mSelection = new boolean[_items.length];
         simple_adapter.clear();
-        simple_adapter.add(_items[0]);
+        simple_adapter.add("-- Vyberte --"); // simple_adapter.add(_items[0]);
         Arrays.fill(mSelection, false);
     }
 
