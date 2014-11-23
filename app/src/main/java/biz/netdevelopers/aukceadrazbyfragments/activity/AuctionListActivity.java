@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.BaseAdapter;
 
 import java.util.concurrent.ExecutionException;
 
 import biz.netdevelopers.aukceadrazbyfragments.R;
 import biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionDetailFragment;
 import biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionListFragment;
+import biz.netdevelopers.aukceadrazbyfragments.model.AuctionObject;
 import biz.netdevelopers.aukceadrazbyfragments.model.VasmajetekProvider;
 
 /**
@@ -122,6 +124,17 @@ public class AuctionListActivity extends Activity
 
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
+
+            return true;
+        }else if (id == R.id.test) {
+
+            AuctionObject a3 = new AuctionObject();
+            a3.setOffer_id(4897);
+            a3.setAdvert_name("TEST add");
+
+            VasmajetekProvider.addItem(a3);
+
+            //getFragmentManager().findFragmentById(R.id.auction_list).getA
 
             return true;
         }

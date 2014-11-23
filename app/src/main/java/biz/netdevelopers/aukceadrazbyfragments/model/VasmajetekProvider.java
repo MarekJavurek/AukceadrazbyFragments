@@ -64,7 +64,7 @@ public class VasmajetekProvider {
 
 
 
-    private static void addItem(AuctionObject item) {
+    public static void addItem(AuctionObject item) {
         ITEMS.add(item);
         ITEM_MAP.put(String.valueOf(item.getOffer_id()), item);
     }
