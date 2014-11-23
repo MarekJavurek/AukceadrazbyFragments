@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="biz.netdevelopers.aukceadrazbyfragments.Nastaveni">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:orientation="vertical">
+
+
+
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stahovat obrázky přes 3G?"
+            android:id="@+id/switch1"/>
+
+        <Button
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:textAlignment="center"
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mySpinner1"
+            android:layout_centerHorizontal="true"
+            android:text="Použít nastavení"
+            android:onClick="onClick"/>
+
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

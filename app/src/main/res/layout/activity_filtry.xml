@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="biz.netdevelopers.aukceadrazbyfragments.Filtry">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:orientation="vertical">
+
+        <biz.netdevelopers.aukceadrazbyfragments.MultiSelectionSpinner
+            android:id="@+id/f_kraje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <biz.netdevelopers.aukceadrazbyfragments.MultiSelectionSpinner
+            android:id="@+id/f_typ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:gravity="center"
+            android:textAlignment="center"
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mySpinner1"
+            android:layout_centerHorizontal="true"
+            android:text="Použít filtr"
+            android:onClick="onClick"/>
+
+
+
+
+    </LinearLayout>
+</RelativeLayout>
