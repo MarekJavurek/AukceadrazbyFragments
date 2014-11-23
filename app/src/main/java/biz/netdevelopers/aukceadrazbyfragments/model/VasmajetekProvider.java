@@ -51,11 +51,11 @@ public class VasmajetekProvider {
     static {
         AuctionObject a1 = new AuctionObject();
         a1.setOffer_id(66);
-        a1.setAdvert_name("Položka 1");
+        a1.setAdvert_name("Rodinný dům Skalička, okres Přerov");
 
         AuctionObject a2 = new AuctionObject();
         a2.setOffer_id(88);
-        a2.setAdvert_name("Položka 2");
+        a2.setAdvert_name("stavební pozemek - VĚCI NEMOVITÉ");
 
         addItem(a1);
         addItem(a2);
