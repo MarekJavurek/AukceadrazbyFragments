@@ -13,10 +13,11 @@
         android:text="Name" />
 
     <TextView
+        android:layout_gravity="right"
         android:textColor="#FF0000"
         android:id="@+id/auction_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Price" />
+        android:text="Id" />
 
 </LinearLayout>

@@ -35,4 +35,7 @@ public class Filtry extends Activity {
     }
 
 
+    public void onClickCancel(View v) {
+        this.finish();
+    }
 }

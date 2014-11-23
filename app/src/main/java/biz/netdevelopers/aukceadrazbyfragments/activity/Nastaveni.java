@@ -36,5 +36,9 @@ public class Nastaveni extends Activity {
         u.saveSettings("nastaveni_3g", String.valueOf(s.isChecked()));
     }
 
+    public void onClickCancel(View v) {
+        this.finish();
+    }
+
 
 }

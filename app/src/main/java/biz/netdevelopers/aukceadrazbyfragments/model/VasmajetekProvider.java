@@ -49,11 +49,11 @@ public class VasmajetekProvider {
 
     static {
         AuctionObject a1 = new AuctionObject();
-        a1.setOffer_id(66);
+        a1.setOffer_id(4896);
         a1.setAdvert_name("Rodinný dům Skalička, okres Přerov");
 
         AuctionObject a2 = new AuctionObject();
-        a2.setOffer_id(88);
+        a2.setOffer_id(4897);
         a2.setAdvert_name("stavební pozemek - VĚCI NEMOVITÉ");
 
         addItem(a1);
@@ -84,8 +84,8 @@ public class VasmajetekProvider {
 
             dfto = new DownloadFilesTaskObject();
             try {
-                dfto.setUrl(new URL("http://netdevelopers.biz/_da/download_test/10.dat"));
-                //dfto.setUrl(new URL("http://netdevelopers.biz/_da/download.php")); // http://netdevelopers.biz/_da/download.php // http://ipv6.download.thinkbroadband.com/5MB.zip
+                //dfto.setUrl(new URL("http://netdevelopers.biz/_da/download_test/5.dat"));
+                dfto.setUrl(new URL("http://netdevelopers.biz/_da/download.php")); // http://netdevelopers.biz/_da/download.php // http://ipv6.download.thinkbroadband.com/5MB.zip
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }

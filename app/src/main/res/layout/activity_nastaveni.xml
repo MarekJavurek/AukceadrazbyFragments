@@ -17,17 +17,34 @@
             android:layout_height="wrap_content"
             android:text="Stahovat obrázky přes 3G?" />
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="fill_parent"
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:onClick="onClick"
-            android:padding="20dp"
-            android:layout_margin="20dp"
-            android:text="Použít nastavení"
-            android:textAlignment="center" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:onClick="onClick"
+                android:text="Použít nastavení"
+                android:textAlignment="center" />
+
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:onClick="onClickCancel"
+                android:text="Storno"
+                android:textAlignment="center" />
+
+        </LinearLayout>
 
 
     </LinearLayout>
