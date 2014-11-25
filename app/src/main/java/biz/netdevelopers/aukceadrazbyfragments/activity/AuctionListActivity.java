@@ -1,5 +1,6 @@
 package biz.netdevelopers.aukceadrazbyfragments.activity;
 
+import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
@@ -134,7 +135,8 @@ public class AuctionListActivity extends Activity
 
             VasmajetekProvider.addItem(a3);
 
-            //getFragmentManager().findFragmentById(R.id.auction_list).getA
+            ListFragment lf = ((ListFragment) getFragmentManager().findFragmentById(R.id.auction_list));
+            ((BaseAdapter) lf.getListAdapter()).notifyDataSetChanged();
 
             return true;
         }

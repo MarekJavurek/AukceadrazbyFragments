@@ -74,6 +74,7 @@ public class AuctionListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         this.setListAdapter(new AuctionAdapter(getActivity(), (ArrayList<AuctionObject>) VasmajetekProvider.ITEMS));
 
     }

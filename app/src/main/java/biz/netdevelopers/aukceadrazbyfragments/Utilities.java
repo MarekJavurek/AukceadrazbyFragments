@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -27,6 +28,13 @@ public class Utilities {
         ConnectivityManager cm = (ConnectivityManager) this.context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
+
+    // je uzivatel pripojen pres 3G
+    public boolean Is3G() {
+        ConnectivityManager cm = (ConnectivityManager) this.context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo.getType() == ConnectivityManager.TYPE_MOBILE;
     }
 
     // funkce na rychlejsi vytvoreni toastmessage
@@ -57,16 +65,15 @@ public class Utilities {
         return ret;
     }
 
-    public void saveSettings(String key, String value) {
-        SharedPreferences sharedPref = this.context.getSharedPreferences(key, Context.MODE_PRIVATE);
+    public void saveBoolSettings(String key, Boolean value) {
+        SharedPreferences sharedPref =PreferenceManager.getDefaultSharedPreferences(this.context);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString(key, value);
+        editor.putBoolean(key, value);
         editor.commit();
     }
 
-    public String loadSettings(String key) {
-        SharedPreferences sharedPref = this.context.getSharedPreferences(key, Context.MODE_PRIVATE);
-        return sharedPref.getString(key, "");
+    public String loadBoolSettings(String key) {
+
     }
 
 }

@@ -1,7 +1,9 @@
 package biz.netdevelopers.aukceadrazbyfragments.activity;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Switch;
 
@@ -32,7 +34,14 @@ public class SettingsActivity extends Activity {
 
 
     public void onClick(View v) {
-        u.saveSettings("nastaveni_3g", String.valueOf(s.isChecked()));
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean("nastaveni_3g", s.isChecked());
+        editor.commit();
+
+        u.saveBoolSettings("nastaveni_3g", s.isChecked());
     }
 
     public void onClickCancel(View v) {
