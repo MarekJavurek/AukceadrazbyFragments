@@ -27,9 +27,7 @@ public class SettingsActivity extends Activity {
 
         u = new Utilities(this);
 
-        String nastaveni_3g = u.loadSettings("nastaveni_3g");
-
-        s.setChecked(Boolean.valueOf(nastaveni_3g));
+        s.setChecked(u.loadBoolSettings("nastaveni_3g"));
     }
 
 

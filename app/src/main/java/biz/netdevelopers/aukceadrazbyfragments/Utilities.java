@@ -72,8 +72,9 @@ public class Utilities {
         editor.commit();
     }
 
-    public String loadBoolSettings(String key) {
-
+    public boolean loadBoolSettings(String key) {
+        SharedPreferences sharedPref =PreferenceManager.getDefaultSharedPreferences(this.context);
+        return sharedPref.getBoolean(key, false);
     }
 
 }

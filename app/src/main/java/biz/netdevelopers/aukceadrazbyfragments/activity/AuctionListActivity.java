@@ -8,11 +8,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.BaseAdapter;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 import biz.netdevelopers.aukceadrazbyfragments.R;
 import biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionDetailFragment;
 import biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionListFragment;
+import biz.netdevelopers.aukceadrazbyfragments.interfaces.INotifyTaskCompleted;
 import biz.netdevelopers.aukceadrazbyfragments.model.AuctionObject;
 import biz.netdevelopers.aukceadrazbyfragments.model.VasmajetekProvider;
 
@@ -33,7 +35,7 @@ import biz.netdevelopers.aukceadrazbyfragments.model.VasmajetekProvider;
  * to listen for item selections.
  */
 public class AuctionListActivity extends Activity
-        implements AuctionListFragment.Callbacks {
+        implements AuctionListFragment.Callbacks, INotifyTaskCompleted {
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -46,7 +48,7 @@ public class AuctionListActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auction_list);
 
-        if (savedInstanceState == null ) {
+        if (savedInstanceState == null) {
             VasmajetekProvider vmp = new VasmajetekProvider(this);
             try {
                 vmp.getAll();
@@ -95,7 +97,8 @@ public class AuctionListActivity extends Activity
         } else {
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
-            Intent detailIntent = new Intent(this, AuctionDetailActivity.class);
+            Intent detailIntent = new Intent(AuctionListActivity.this, AuctionDetailActivity.class);
+            //detailIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
             detailIntent.putExtra(AuctionDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
         }
@@ -141,5 +144,10 @@ public class AuctionListActivity extends Activity
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void DataChanged(ArrayList<AuctionObject> list) {
+
     }
 }
