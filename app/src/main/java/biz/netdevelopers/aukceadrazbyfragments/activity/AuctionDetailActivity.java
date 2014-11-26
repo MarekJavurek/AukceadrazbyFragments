@@ -62,7 +62,7 @@ public class AuctionDetailActivity extends Activity {
             //
             // http://developer.android.com/design/patterns/navigation.html#up-vs-back
             //
-            navigateUpTo(new Intent(this, AuctionListActivity.class));
+            navigateUpTo(new Intent(this, AuctionDetailActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

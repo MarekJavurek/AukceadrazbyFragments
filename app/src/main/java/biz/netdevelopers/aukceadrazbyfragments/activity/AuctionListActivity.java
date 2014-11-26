@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 import biz.netdevelopers.aukceadrazbyfragments.R;
+import biz.netdevelopers.aukceadrazbyfragments.Utilities;
 import biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionDetailFragment;
 import biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionListFragment;
 import biz.netdevelopers.aukceadrazbyfragments.interfaces.INotifyTaskCompleted;
@@ -133,7 +134,7 @@ public class AuctionListActivity extends Activity
         }else if (id == R.id.test) {
 
             AuctionObject a3 = new AuctionObject();
-            a3.setOffer_id(4897);
+            a3.setOffer_id(Utilities.randInt(1, 99999));
             a3.setAdvert_name("TEST add");
 
             VasmajetekProvider.addItem(a3);
