@@ -27,9 +27,9 @@ import biz.netdevelopers.aukceadrazbyfragments.Utilities;
 public class VasmajetekProvider {
 
     // kontext
-    Context context;
+    public Context context;
     // je uzivatel online
-    boolean isOnline;
+    public boolean isOnline;
 
     DownloadFilesTask dft;
     DownloadFilesTaskObject dfto;
