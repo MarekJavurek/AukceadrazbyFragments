@@ -96,6 +96,13 @@ public class VasmajetekProvider {
                 protected void onPostExecute(String result) {
                     super.onPostExecute(result);
                     mProgressDialog.dismiss();
+
+                    AuctionListActivity a = (AuctionListActivity) context;
+                    try {
+                        a.DataChanged(getArrayFromJSONAll(context.getFilesDir() + "all.json"));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             };
 
@@ -120,8 +127,8 @@ public class VasmajetekProvider {
             String lastUpdate = "?";
             new Utilities(this.context).TL("Nejsi online, poslední aktualizace dat: " + lastUpdate);
             // TODO pokud nejsi online nacti data od posledne
-            AuctionListActivity a = (AuctionListActivity) this.context;
 
+            AuctionListActivity a = (AuctionListActivity) this.context;
             a.DataChanged(getArrayFromJSONAll(this.context.getFilesDir() + "all.json"));
         }
 
