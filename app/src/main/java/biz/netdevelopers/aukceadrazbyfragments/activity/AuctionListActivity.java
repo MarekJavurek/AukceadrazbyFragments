@@ -4,6 +4,7 @@ import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.BaseAdapter;
@@ -35,8 +36,8 @@ import biz.netdevelopers.aukceadrazbyfragments.model.VasmajetekProvider;
  * {@link biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionListFragment.Callbacks} interface
  * to listen for item selections.
  */
-public class AuctionListActivity extends Activity
-        implements AuctionListFragment.Callbacks, INotifyTaskCompleted {
+public class AuctionListActivity extends ActionBarActivity // ActionBarActivity
+implements AuctionListFragment.Callbacks, INotifyTaskCompleted {
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet

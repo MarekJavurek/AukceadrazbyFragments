@@ -21,20 +21,26 @@ public class AuctionAdapter extends ArrayAdapter<AuctionObject> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // Get the data item for this position
+
         AuctionObject auction = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_auction, parent, false);
         }
 
-        // Lookup view for data population
-        TextView Advert_name = (TextView) convertView.findViewById(R.id.auction_name);
-        TextView Offer_id = (TextView) convertView.findViewById(R.id.auction_price);
-        // Populate the data into the template view using the data object
-        Advert_name.setText(auction.getAdvert_name());
-        Offer_id.setText("ID: " + String.valueOf(auction.getOffer_id()));
-        // Return the completed view to render on screen
+
+        TextView A_name = (TextView) convertView.findViewById(R.id.auction_name);
+        TextView A_id = (TextView) convertView.findViewById(R.id.auction_id);
+        TextView A_price = (TextView) convertView.findViewById(R.id.auction_price);
+        TextView A_kraj = (TextView) convertView.findViewById(R.id.auction_kraj);
+        TextView A_typ = (TextView) convertView.findViewById(R.id.auction_type);
+
+        A_name.setText(auction.getAdvert_name());
+        A_id.setText("ID: " + String.valueOf(auction.getOffer_id()));
+        A_price.setText("Cena: " + String.valueOf(auction.getAdvert_price()));
+        A_kraj.setText("Kraj: " + auction.getLocality_nuts());
+        A_typ.setText("Typ: " + String.valueOf(auction.getAdvert_type()));
+
         return convertView;
     }
 }

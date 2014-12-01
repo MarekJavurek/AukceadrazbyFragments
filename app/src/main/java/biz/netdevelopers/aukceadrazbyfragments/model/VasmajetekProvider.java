@@ -143,9 +143,13 @@ public class VasmajetekProvider {
         for (int i = 0; i < data.length(); i++) {
             JSONObject c = data.getJSONObject(i);
             AuctionObject a = new AuctionObject();
+
             a.setAdvert_name(c.getString("2"));
-            //TODO add other elements
-            //use >  int id = c.getInt("duration"); if you want get an int
+            a.setAdvert_price(c.getInt("4"));
+            a.setAdvert_type(c.getInt("3"));
+            a.setLocality_nuts(c.getString("6"));
+            a.setOffer_id(c.getInt("1"));
+
             all.add(a);
             this.addItem(a);
         }
