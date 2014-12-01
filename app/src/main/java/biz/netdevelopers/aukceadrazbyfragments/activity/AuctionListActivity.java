@@ -53,9 +53,7 @@ public class AuctionListActivity extends Activity
             VasmajetekProvider vmp = new VasmajetekProvider(this);
             try {
                 vmp.getAll();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -131,24 +129,13 @@ public class AuctionListActivity extends Activity
             startActivity(intent);
 
             return true;
-        }else if (id == R.id.test) {
-
-            AuctionObject a3 = new AuctionObject();
-            a3.setOffer_id(Utilities.randInt(1, 99999));
-            a3.setAdvert_name("TEST add");
-
-            VasmajetekProvider.addItem(a3);
-
-            ListFragment lf = ((ListFragment) getFragmentManager().findFragmentById(R.id.auction_list));
-            ((BaseAdapter) lf.getListAdapter()).notifyDataSetChanged();
-
-            return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void DataChanged(ArrayList<AuctionObject> list) {
-
+        ListFragment lf = ((ListFragment) getFragmentManager().findFragmentById(R.id.auction_list));
+        ((BaseAdapter) lf.getListAdapter()).notifyDataSetChanged();
     }
 }

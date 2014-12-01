@@ -5,19 +5,52 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:textSize="18sp"
-        android:id="@+id/auction_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name" />
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
-    <TextView
-        android:layout_gravity="right"
-        android:textColor="#FF0000"
-        android:id="@+id/auction_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Id" />
+        <TextView
+            android:layout_gravity="left"
+            android:textColor="#fe15a33b"
+            android:id="@+id/auction_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cena" />
+
+        <TextView
+            android:textSize="18sp"
+            android:id="@+id/auction_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/auction_price"
+            android:text="Name" />
+
+        <TextView
+            android:layout_gravity="right"
+            android:id="@+id/auction_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Id" />
+
+        <TextView
+            android:layout_gravity="left"
+            android:textColor="#fe2a60a3"
+            android:id="@+id/auction_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/auction_name"
+            android:text="Typ" />
+
+        <TextView
+            android:layout_gravity="right"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/auction_name"
+            android:textColor="#fea32f39"
+            android:id="@+id/auction_kraj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kraj" />
+    </RelativeLayout>
 
 </LinearLayout>

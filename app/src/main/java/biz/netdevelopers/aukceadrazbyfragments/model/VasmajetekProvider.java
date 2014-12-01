@@ -22,6 +22,7 @@ import java.util.concurrent.ExecutionException;
 import biz.netdevelopers.aukceadrazbyfragments.DownloadFilesTask;
 import biz.netdevelopers.aukceadrazbyfragments.DownloadFilesTaskObject;
 import biz.netdevelopers.aukceadrazbyfragments.Utilities;
+import biz.netdevelopers.aukceadrazbyfragments.activity.AuctionListActivity;
 
 
 public class VasmajetekProvider {
@@ -47,30 +48,13 @@ public class VasmajetekProvider {
     public static Map<String, AuctionObject> ITEM_MAP = new HashMap<String, AuctionObject>();
     public static List<AuctionObject> ITEMS = new ArrayList<AuctionObject>();
 
-    static {
-        AuctionObject a1 = new AuctionObject();
-        a1.setOffer_id(4896);
-        a1.setAdvert_name("Rodinný dům Skalička, okres Přerov");
-
-        AuctionObject a2 = new AuctionObject();
-        a2.setOffer_id(4897);
-        a2.setAdvert_name("stavební pozemek - VĚCI NEMOVITÉ");
-
-        addItem(a1);
-        addItem(a2);
-    }
-
-
-
-
-
     public static void addItem(AuctionObject item) {
         ITEMS.add(item);
         ITEM_MAP.put(String.valueOf(item.getOffer_id()), item);
     }
 
     // ziskani seznamu vsech aukci
-    public ArrayList<AuctionObject> getAll() throws ExecutionException, InterruptedException {
+    public void getAll() throws Exception {
         // ArrayList<AuctionObject> all = new ArrayList<AuctionObject>();
 
         // je uzivatel online?
@@ -114,6 +98,8 @@ public class VasmajetekProvider {
                     mProgressDialog.dismiss();
                 }
             };
+
+
             // spusteni stahovani v novem vlakne, zatim jsem toto nedoresil
             dft.execute(dfto);
 
@@ -134,9 +120,13 @@ public class VasmajetekProvider {
             String lastUpdate = "?";
             new Utilities(this.context).TL("Nejsi online, poslední aktualizace dat: " + lastUpdate);
             // TODO pokud nejsi online nacti data od posledne
+            AuctionListActivity a = (AuctionListActivity) this.context;
+
+            a.DataChanged(getArrayFromJSONAll(this.context.getFilesDir() + "all.json"));
         }
-        return null;
+
     }
+
 
     // http://www.androidhive.info/2012/01/android-json-parsing-tutorial/
     // http://www.androidhive.info/2012/01/android-json-parsing-tutorial/
@@ -157,6 +147,7 @@ public class VasmajetekProvider {
             //TODO add other elements
             //use >  int id = c.getInt("duration"); if you want get an int
             all.add(a);
+            this.addItem(a);
         }
 
         return all;

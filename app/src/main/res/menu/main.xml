@@ -12,9 +12,4 @@
         android:orderInCategory="2"
         android:showAsAction="never" />
 
-    <item android:id="@+id/test"
-        android:title="Test..."
-        android:orderInCategory="3"
-        android:showAsAction="never" />
-
 </menu>
