@@ -1,22 +1,27 @@
 package biz.netdevelopers.aukceadrazbyfragments.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Kraje {
 
-/*
-Hlavní město Praha	CZ010
-Středočeský kraj	CZ020
-Jihočeský kraj	CZ031
-Plzeňský kraj	CZ032
-Karlovarský kraj	CZ041
-Ústecký kraj	CZ042
-Liberecký kraj	CZ051
-Královéhradecký kraj	CZ052
-Pardubický kraj	CZ053
-Kraj Vysočina	CZ063
-Jihomoravský kraj	CZ064
-Olomoucký kraj	CZ071
-Zlínský kraj	CZ072
-Moravskoslezský kraj	CZ080
+    public static Map<String, String> KRAJE = new HashMap<String, String>();
 
-*/
+    static {
+        KRAJE.put("CZ010", "Hlavní město Praha");
+        KRAJE.put("CZ020", "Středočeský kraj");
+        KRAJE.put("CZ031", "Jihočeský kraj");
+        KRAJE.put("CZ032", "Plzeňský kraj");
+        KRAJE.put("CZ041", "Karlovarský kraj");
+        KRAJE.put("CZ042", "Ústecký kraj");
+        KRAJE.put("CZ051", "Liberecký kraj");
+        KRAJE.put("CZ052", "Královéhradecký kraj");
+        KRAJE.put("CZ053", "Pardubický kraj");
+        KRAJE.put("CZ063", "Kraj Vysočina");
+        KRAJE.put("CZ064", "Jihomoravský kraj");
+        KRAJE.put("CZ071", "Olomoucký kraj");
+        KRAJE.put("CZ072", "Zlínský kraj");
+        KRAJE.put("CZ080", "Moravskoslezský kraj");
+    }
+
 }

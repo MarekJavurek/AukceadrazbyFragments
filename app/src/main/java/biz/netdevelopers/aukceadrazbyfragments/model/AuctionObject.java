@@ -16,50 +16,44 @@ public class AuctionObject {
     private String locality_nuts;
     private int advert_price;
 
-
-
-
-
     public int getOffer_id() {
         return offer_id;
     }
-
     public void setOffer_id(int offer_id) {
         this.offer_id = offer_id;
     }
-
     public String getAdvert_name() {
         return advert_name;
     }
-
     public void setAdvert_name(String advert_name) {
         this.advert_name = advert_name;
     }
-
     public int getAdvert_type() {
         return advert_type;
     }
-
     public void setAdvert_type(int advert_type) {
         this.advert_type = advert_type;
     }
-
     public String getLocality_nuts() {
         return locality_nuts;
     }
-
     public void setLocality_nuts(String locality_nuts) {
         this.locality_nuts = locality_nuts;
     }
-
     public int getAdvert_price() {
         return advert_price;
     }
-
     public void setAdvert_price(int advert_price) {
         this.advert_price = advert_price;
     }
+
+    // TODO dalsi parametry pro detail
+
+
+
 }
+
+
     /*
 offer_id: 94345,
 version: 7,
