@@ -33,7 +33,8 @@ public class AuctionDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.auction_detail)).setText(mItem.getAdvert_name());
+            ((TextView) rootView.findViewById(R.id.auction_detail_name)).setText(mItem.getAdvert_name());
+            ((TextView) rootView.findViewById(R.id.auction_detail_price)).setText(String.valueOf(mItem.getAdvert_price()));
         }
 
         return rootView;
