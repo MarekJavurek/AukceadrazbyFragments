@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Kraje {
 
-    public static Map<String, String> KRAJE = new HashMap<String, String>();
+    public static HashMap<String, String> KRAJE = new HashMap<String, String>();
 
     static {
         KRAJE.put("CZ010", "Hlavní město Praha");

@@ -18,7 +18,7 @@
         android:name="biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionListFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="2"
         tools:layout="@layout/list_auction" />
 
     <FrameLayout android:id="@+id/auction_detail_container"
