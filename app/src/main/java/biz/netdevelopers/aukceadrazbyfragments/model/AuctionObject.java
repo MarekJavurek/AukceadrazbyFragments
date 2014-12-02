@@ -2,7 +2,14 @@ package biz.netdevelopers.aukceadrazbyfragments.model;
 
 import java.lang.String;
 
+import com.google.gson.GsonBuilder;
+import com.google.gson.annotations.SerializedName;
+
+
 public class AuctionObject {
+
+    final GsonBuilder builder = new GsonBuilder();
+
 
     @Override
     public String toString() {
