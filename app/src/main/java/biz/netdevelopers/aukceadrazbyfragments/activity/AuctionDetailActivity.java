@@ -29,6 +29,9 @@ public class AuctionDetailActivity extends ActionBarActivity {
         setContentView(R.layout.activity_auction_detail);
 
         // Show the Up button in the action bar.
+
+        // nutno zakomentovat aby to chodilo v appcombat theme
+
         //getActionBar().setDisplayHomeAsUpEnabled(false);
 
         // savedInstanceState is non-null when there is fragment state
