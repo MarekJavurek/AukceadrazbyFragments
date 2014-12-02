@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import biz.netdevelopers.aukceadrazbyfragments.R;
@@ -19,7 +21,7 @@ import biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionDetailFragment;
  * This activity is mostly just a 'shell' activity containing nothing
  * more than a {@link biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionDetailFragment}.
  */
-public class AuctionDetailActivity extends Activity {
+public class AuctionDetailActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,7 @@ public class AuctionDetailActivity extends Activity {
         setContentView(R.layout.activity_auction_detail);
 
         // Show the Up button in the action bar.
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        //getActionBar().setDisplayHomeAsUpEnabled(false);
 
         // savedInstanceState is non-null when there is fragment state
         // saved from previous configurations of this activity
@@ -50,6 +52,13 @@ public class AuctionDetailActivity extends Activity {
                     .add(R.id.auction_detail_container, fragment)
                     .commit();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.detail, menu);
+        return true;
     }
 
     @Override

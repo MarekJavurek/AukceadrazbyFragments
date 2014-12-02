@@ -1,13 +1,13 @@
 <resources>
 
     <!--
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar"></style>
-    <style name="AppThemeDialog" parent="android:Theme.Holo.Light.Dialog"></style>
+        <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar"></style>
+        <style name="AppThemeDialog" parent="android:Theme.Holo.Light.Dialog"></style>
     -->
 
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light"></style>
-    <style name="AppThemeDialog" parent="Theme.AppCompat.Light.Dialog"></style>
+        <style name="AppTheme" parent="Theme.AppCompat.Light"></style>
+        <style name="AppThemeDialog" parent="Theme.AppCompat.Light.Dialog"></style>
 
 
 </resources>
