@@ -3,12 +3,13 @@ package biz.netdevelopers.aukceadrazbyfragments.model;
 import android.app.ProgressDialog;
 import android.content.Context;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.lang.Exception;
 import java.lang.Integer;
-import java.lang.InterruptedException;
 import java.lang.Override;
 import java.lang.String;
 import java.net.MalformedURLException;
@@ -17,13 +18,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
-
 import biz.netdevelopers.aukceadrazbyfragments.DownloadFilesTask;
 import biz.netdevelopers.aukceadrazbyfragments.DownloadFilesTaskObject;
 import biz.netdevelopers.aukceadrazbyfragments.Utilities;
 import biz.netdevelopers.aukceadrazbyfragments.activity.AuctionListActivity;
-
 
 public class VasmajetekProvider {
 
@@ -106,22 +104,8 @@ public class VasmajetekProvider {
                 }
             };
 
-
-            // spusteni stahovani v novem vlakne, zatim jsem toto nedoresil
             dft.execute(dfto);
 
-            /*
-            String aResultM = dft.get(); // http://stackoverflow.com/questions/16912768/asynctasks-get-method-is-there-any-scenario-where-it-is-actually-the-best-op
-
-            if (aResultM == null)
-                try {
-                    return getArrayFromJSONAll(finalAllDest); // TODO
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            else
-                return null;
-            */
 
         } else {
             String lastUpdate = "?";
@@ -134,9 +118,6 @@ public class VasmajetekProvider {
 
     }
 
-
-    // http://www.androidhive.info/2012/01/android-json-parsing-tutorial/
-    // http://www.androidhive.info/2012/01/android-json-parsing-tutorial/
     // konverze z souboru do arraylistu AuctionObject
     private ArrayList<AuctionObject> getArrayFromJSONAll(String dest) throws Exception {
 
@@ -166,12 +147,73 @@ public class VasmajetekProvider {
 
 
     // ziskani objektu konkretni aukce
-    public AuctionObject getOne(int id) {
-        AuctionObject one = new AuctionObject();
+    public void getOne(String id) {
 
-        // TODO
+        final GsonBuilder builder = new GsonBuilder();
+        final Gson gson = builder.create();
+        //return gson.fromJson(json, AuctionObject.class);
 
-        return one;
+        if (isOnline) {
+            mProgressDialog = new ProgressDialog(this.context);
+            mProgressDialog.setMessage("Stahování detailu...");
+            mProgressDialog.setIndeterminate(true);
+            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            mProgressDialog.setCancelable(true);
+
+            dfto = new DownloadFilesTaskObject();
+            try {
+                dfto.setUrl(new URL("http://cml.vasmajetek.cz/rest/offer/" + id));
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+
+            finalAllDest = this.context.getFilesDir() + id + ".json";
+            dfto.setDestination(finalAllDest);
+
+            dft = new DownloadFilesTask(this.context) {
+                @Override
+                protected void onPreExecute() {
+                    super.onPreExecute();
+                    mProgressDialog.show();
+                }
+
+                @Override
+                protected void onProgressUpdate(Integer... progress) {
+                    super.onProgressUpdate(progress);
+                    mProgressDialog.setIndeterminate(false);
+                    mProgressDialog.setMax(100);
+                    mProgressDialog.setProgress(progress[0]);
+                }
+
+                @Override
+                protected void onPostExecute(String result) {
+                    super.onPostExecute(result);
+                    mProgressDialog.dismiss();
+
+                    /*
+                    AuctionListActivity a = (AuctionListActivity) context;
+                    try {
+                        a.DataChanged(getArrayFromJSONAll(context.getFilesDir() + "all.json"));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    */
+                }
+            };
+
+            dft.execute(dfto);
+
+
+        } else {
+            String lastUpdate = "?";
+            new Utilities(this.context).TL("Nejsi online, poslední aktualizace dat: " + lastUpdate);
+            /*
+            AuctionListActivity a = (AuctionListActivity) this.context;
+            a.DataChanged(getArrayFromJSONAll(this.context.getFilesDir() + "all.json"));
+            */
+        }
+
+
     }
 
 }
