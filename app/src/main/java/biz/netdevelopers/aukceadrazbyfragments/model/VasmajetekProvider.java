@@ -79,7 +79,7 @@ public class VasmajetekProvider {
             finalAllDest = this.context.getFilesDir() + "all.json";
             dfto.setDestination(finalAllDest); // this.context.getFilesDir() + //"/sdcard/all.json"
 
-            dft = new DownloadFilesTask(this.context) {
+            dft = new DownloadFilesTask(this.context, null) {
                 @Override
                 protected void onPreExecute() {
                     super.onPreExecute();
@@ -174,7 +174,7 @@ public class VasmajetekProvider {
             finalAllDest = this.context.getFilesDir() + id + ".json";
             dfto.setDestination(finalAllDest);
 
-            dft = new DownloadFilesTask(this.context) {
+            dft = new DownloadFilesTask(this.context, id) {
                 @Override
                 protected void onPreExecute() {
                     super.onPreExecute();
@@ -194,23 +194,18 @@ public class VasmajetekProvider {
                     super.onPostExecute(result);
                     mProgressDialog.dismiss();
 
-
-                    inter.DataChanged(new ArrayList<AuctionObject>());
-
-
-                    /*
-                    AuctionListActivity a = (AuctionListActivity) context;
+                    ArrayList<AuctionObject> ar = new ArrayList<AuctionObject>();
                     try {
-                        a.DataChanged(getArrayFromJSONAll(context.getFilesDir() + "all.json"));
+                        ar.add(gson.fromJson(Utilities.getStringFromFile(context.getFilesDir() + id + ".json"), AuctionObject.class));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    */
+
+                    inter.DataChanged(ar);
                 }
             };
 
             dft.execute(dfto);
-
 
         } else {
             String lastUpdate = "?";

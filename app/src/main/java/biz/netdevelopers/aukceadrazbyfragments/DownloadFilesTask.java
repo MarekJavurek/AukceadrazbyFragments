@@ -18,9 +18,11 @@ public class DownloadFilesTask extends AsyncTask<DownloadFilesTaskObject, Intege
 
     private Context context;
     private PowerManager.WakeLock mWakeLock;
+    public String id;
 
-    public DownloadFilesTask(Context context) {
+    public DownloadFilesTask(Context context, String id) {
         this.context = context;
+        this.id = id;
     }
 
     @Override

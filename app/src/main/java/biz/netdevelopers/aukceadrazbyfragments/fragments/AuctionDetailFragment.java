@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import biz.netdevelopers.aukceadrazbyfragments.activity.AuctionListActivity;
@@ -24,18 +26,20 @@ public class AuctionDetailFragment extends Fragment implements INotifyTaskComple
     public AuctionDetailFragment() {
     }
 
+    String id;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
 
-            String id = getArguments().getString(ARG_ITEM_ID);
+            id = getArguments().getString(ARG_ITEM_ID);
 
             VasmajetekProvider vmp = new VasmajetekProvider(getActivity(), this);
             vmp.getOne(id);
 
-            mItem = VasmajetekProvider.ITEM_MAP.get(id);
+            //mItem = VasmajetekProvider.ITEM_MAP.get(id);
         }
     }
 
@@ -44,20 +48,40 @@ public class AuctionDetailFragment extends Fragment implements INotifyTaskComple
         View rootView = inflater.inflate(R.layout.fragment_auction_detail, container, false);
 
         // Show the dummy content as text in a TextView.
+        /*
         if (mItem != null) {
             ((TextView) rootView.findViewById(R.id.auction_detail_name)).setText(mItem.getAdvert_name());
             ((TextView) rootView.findViewById(R.id.auction_detail_price)).setText(String.valueOf(mItem.getAdvert_price()));
         }
-
+        */
         return rootView;
     }
 
     @Override
     public void DataChanged(ArrayList<AuctionObject> list) {
-        // getaucdate
+        mItem = list.get(0);
         LinearLayout linearLayout = (LinearLayout) getView().findViewById(R.id.linear_detail_layout);
-        TextView txt1 = new TextView(getActivity());
-        txt1.setText("TEST");
-        linearLayout.addView(txt1);
+
+        Method[] methods = AuctionObject.class.getMethods();
+        for(Method method : methods){
+            if(isGetter(method)){
+                TextView txt1 = new TextView(getActivity());
+                try {
+                    txt1.setText(String.valueOf(method.invoke(mItem)));
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                }
+                linearLayout.addView(txt1);
+            }
+        }
+    }
+
+    public static boolean isGetter(Method method){
+        if(!method.getName().startsWith("get"))      return false;
+        if(method.getParameterTypes().length != 0)   return false;
+        if(void.class.equals(method.getReturnType()))return false;
+        return true;
     }
 }

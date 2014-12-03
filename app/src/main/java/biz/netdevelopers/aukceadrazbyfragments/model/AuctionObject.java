@@ -1,14 +1,10 @@
 package biz.netdevelopers.aukceadrazbyfragments.model;
 
 import java.lang.String;
-import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.SerializedName;
 
 
 public class AuctionObject {
-
-    final GsonBuilder builder = new GsonBuilder();
-
 
     @Override
     public String toString() {
@@ -55,6 +51,79 @@ public class AuctionObject {
 
     // TODO dalsi parametry pro detail
 
+
+    public String getSeller_ico() {
+        return seller_ico;
+    }
+
+    public void setSeller_ico(String seller_ico) {
+        this.seller_ico = seller_ico;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    public int getAdvert_function() {
+        return advert_function;
+    }
+
+    public void setAdvert_function(int advert_function) {
+        this.advert_function = advert_function;
+    }
+
+    public int getAdvert_subtype() {
+        return advert_subtype;
+    }
+
+    public void setAdvert_subtype(int advert_subtype) {
+        this.advert_subtype = advert_subtype;
+    }
+
+    public String getAdvert_original_source() {
+        return advert_original_source;
+    }
+
+    public void setAdvert_original_source(String advert_original_source) {
+        this.advert_original_source = advert_original_source;
+    }
+
+    public String getAuction_date() {
+        return auction_date;
+    }
+
+    public void setAuction_date(String auction_date) {
+        this.auction_date = auction_date;
+    }
+
+    public String getCreated_time() {
+        return created_time;
+    }
+
+    public void setCreated_time(String created_time) {
+        this.created_time = created_time;
+    }
+
+    public String getUpdated_time() {
+        return updated_time;
+    }
+
+    public void setUpdated_time(String updated_time) {
+        this.updated_time = updated_time;
+    }
+
+    public String getCancelled() {
+        return cancelled;
+    }
+
+    public void setCancelled(String cancelled) {
+        this.cancelled = cancelled;
+    }
+
     @SerializedName("version")
     public int version; // version: 7,
 
@@ -82,13 +151,7 @@ public class AuctionObject {
     @SerializedName("seller_ico")
     public String seller_ico; // seller_ico: "48396389",
 
-    public String getAuction_date() {
-        return auction_date;
-    }
 
-    public void setAuction_date(String auction_date) {
-        this.auction_date = auction_date;
-    }
 }
 
 
