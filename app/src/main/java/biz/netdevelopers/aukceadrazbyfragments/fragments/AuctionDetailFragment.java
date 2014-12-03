@@ -54,6 +54,7 @@ public class AuctionDetailFragment extends Fragment implements INotifyTaskComple
 
     @Override
     public void DataChanged(ArrayList<AuctionObject> list) {
+        // getaucdate
         LinearLayout linearLayout = (LinearLayout) getView().findViewById(R.id.linear_detail_layout);
         TextView txt1 = new TextView(getActivity());
         txt1.setText("TEST");

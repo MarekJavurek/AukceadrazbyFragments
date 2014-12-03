@@ -38,9 +38,12 @@ public class VasmajetekProvider {
     // progress dialog stahovani
     ProgressDialog mProgressDialog;
 
+    INotifyTaskCompleted inter;
+
     // konstruktor
     public VasmajetekProvider(Context context, INotifyTaskCompleted inter) {
         this.context = context;
+        this.inter = inter;
         this.isOnline = new Utilities(this.context).isOnline();
     }
 
@@ -190,6 +193,10 @@ public class VasmajetekProvider {
                 protected void onPostExecute(String result) {
                     super.onPostExecute(result);
                     mProgressDialog.dismiss();
+
+
+                    inter.DataChanged(new ArrayList<AuctionObject>());
+
 
                     /*
                     AuctionListActivity a = (AuctionListActivity) context;

@@ -82,6 +82,13 @@ public class AuctionObject {
     @SerializedName("seller_ico")
     public String seller_ico; // seller_ico: "48396389",
 
+    public String getAuction_date() {
+        return auction_date;
+    }
+
+    public void setAuction_date(String auction_date) {
+        this.auction_date = auction_date;
+    }
 }
 
 
