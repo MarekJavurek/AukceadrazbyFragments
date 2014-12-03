@@ -1,7 +1,6 @@
 package biz.netdevelopers.aukceadrazbyfragments.model;
 
 import java.lang.String;
-
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.SerializedName;
 
@@ -17,11 +16,11 @@ public class AuctionObject {
     }
 
     // TODO nutno doplnit všechny ostatní parametry
-    private int offer_id;
-    private String advert_name;
-    private int advert_type;
-    private String locality_nuts;
-    private int advert_price;
+    private int offer_id; // offer_id: 94345,
+    private String advert_name; // advert_name: "Rodinný dům ve Vraném nad Vltavou okres Praha - západ",
+    private int advert_type; // advert_type: 2,
+    private String locality_nuts; // locality_nuts: "CZ0",
+    private int advert_price; // advert_price: 990000,
 
     public int getOffer_id() {
         return offer_id;
@@ -56,27 +55,26 @@ public class AuctionObject {
 
     // TODO dalsi parametry pro detail
 
+    @SerializedName("version")
+    public int version; // version: 7,
 
+    @SerializedName("advert_function")
+    public int advert_function; // advert_function: 3,
+
+    @SerializedName("advert_subtype")
+    public int advert_subtype; // advert_subtype: 37,
 
 }
 
 
     /*
-offer_id: 94345,
-version: 7,
-advert_name: "Rodinný dům ve Vraném nad Vltavou okres Praha - západ",
-advert_function: 3,
-advert_type: 2,
-advert_subtype: 37,
 advert_original_source: "CADR",
-locality_nuts: "CZ0",
 auction_date: "2014-10-29T00:00:00+01:00",
 created_time: "2014-08-27T02:00:03+02:00",
 updated_time: "2014-11-03T02:00:11+01:00",
 cancelled: "0",
 seller_ico: "48396389",
 proposer_ico: "24784877",
-advert_price: 990000,
 advert_price_currency: 1,
 vm_url: null,
 auction_advertisement: "http://www.centralniadresa.cz/cadr/cadr04004Prepare.do;jsessionid=AAAAaN5Jv2lzKpgELXBv6Q?znackaInzeratu=10950242DV01",
