@@ -64,16 +64,28 @@ public class AuctionObject {
     @SerializedName("advert_subtype")
     public int advert_subtype; // advert_subtype: 37,
 
+    @SerializedName("advert_original_source")
+    public String advert_original_source; // advert_original_source: "CADR",
+
+    @SerializedName("auction_date")
+    public String auction_date; // auction_date: "2014-10-29T00:00:00+01:00",
+
+    @SerializedName("created_time")
+    public String created_time; // created_time: "2014-08-27T02:00:03+02:00",
+
+    @SerializedName("updated_time")
+    public String updated_time; // updated_time: "2014-11-03T02:00:11+01:00",
+
+    @SerializedName("cancelled")
+    public String cancelled; // cancelled: "0",
+
+    @SerializedName("seller_ico")
+    public String seller_ico; // seller_ico: "48396389",
+
 }
 
 
     /*
-advert_original_source: "CADR",
-auction_date: "2014-10-29T00:00:00+01:00",
-created_time: "2014-08-27T02:00:03+02:00",
-updated_time: "2014-11-03T02:00:11+01:00",
-cancelled: "0",
-seller_ico: "48396389",
 proposer_ico: "24784877",
 advert_price_currency: 1,
 vm_url: null,
