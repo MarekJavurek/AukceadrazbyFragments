@@ -148,7 +148,7 @@ public class VasmajetekProvider {
 
     // ziskani objektu konkretni aukce
     public void getOne(String id) {
-
+        // http://www.javacreed.com/gson-annotations-example/
         final GsonBuilder builder = new GsonBuilder();
         final Gson gson = builder.create();
         //return gson.fromJson(json, AuctionObject.class);
