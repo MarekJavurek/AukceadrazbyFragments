@@ -22,6 +22,7 @@ import biz.netdevelopers.aukceadrazbyfragments.DownloadFilesTask;
 import biz.netdevelopers.aukceadrazbyfragments.DownloadFilesTaskObject;
 import biz.netdevelopers.aukceadrazbyfragments.Utilities;
 import biz.netdevelopers.aukceadrazbyfragments.activity.AuctionListActivity;
+import biz.netdevelopers.aukceadrazbyfragments.interfaces.INotifyTaskCompleted;
 
 public class VasmajetekProvider {
 
@@ -38,7 +39,7 @@ public class VasmajetekProvider {
     ProgressDialog mProgressDialog;
 
     // konstruktor
-    public VasmajetekProvider(Context context) {
+    public VasmajetekProvider(Context context, INotifyTaskCompleted inter) {
         this.context = context;
         this.isOnline = new Utilities(this.context).isOnline();
     }

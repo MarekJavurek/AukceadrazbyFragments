@@ -51,7 +51,7 @@ implements AuctionListFragment.Callbacks, INotifyTaskCompleted {
         setContentView(R.layout.activity_auction_list);
 
         if (savedInstanceState == null) {
-            VasmajetekProvider vmp = new VasmajetekProvider(this);
+            VasmajetekProvider vmp = new VasmajetekProvider(this, null);
             try {
                 vmp.getAll();
             } catch (Exception e) {

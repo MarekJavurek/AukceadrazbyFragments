@@ -6,6 +6,7 @@ tools:context=".AuctionDetailFragment"
 android:layout_width="match_parent"
 android:padding="10dp"
 android:layout_height="match_parent"
+android:id="@+id/linear_detail_layout"
 android:orientation="vertical">
 
     <TextView

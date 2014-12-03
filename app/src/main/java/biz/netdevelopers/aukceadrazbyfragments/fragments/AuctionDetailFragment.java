@@ -5,12 +5,18 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+
+import biz.netdevelopers.aukceadrazbyfragments.activity.AuctionListActivity;
+import biz.netdevelopers.aukceadrazbyfragments.interfaces.INotifyTaskCompleted;
 import biz.netdevelopers.aukceadrazbyfragments.model.AuctionObject;
 import biz.netdevelopers.aukceadrazbyfragments.R;
 import biz.netdevelopers.aukceadrazbyfragments.model.VasmajetekProvider;
 
-public class AuctionDetailFragment extends Fragment {
+public class AuctionDetailFragment extends Fragment implements INotifyTaskCompleted {
 
     public static final String ARG_ITEM_ID = "item_id";
     private AuctionObject mItem;
@@ -23,7 +29,13 @@ public class AuctionDetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
-            mItem = VasmajetekProvider.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+
+            String id = getArguments().getString(ARG_ITEM_ID);
+
+            VasmajetekProvider vmp = new VasmajetekProvider(getActivity(), this);
+            vmp.getOne(id);
+
+            mItem = VasmajetekProvider.ITEM_MAP.get(id);
         }
     }
 
@@ -38,5 +50,13 @@ public class AuctionDetailFragment extends Fragment {
         }
 
         return rootView;
+    }
+
+    @Override
+    public void DataChanged(ArrayList<AuctionObject> list) {
+        LinearLayout linearLayout = (LinearLayout) getView().findViewById(R.id.linear_detail_layout);
+        TextView txt1 = new TextView(getActivity());
+        txt1.setText("TEST");
+        linearLayout.addView(txt1);
     }
 }
