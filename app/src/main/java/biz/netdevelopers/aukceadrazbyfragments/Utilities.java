@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;import java.lang.Exception;import java.lang.String;import java.lang.StringBuilder;
+import java.lang.reflect.Field;
 import java.util.Random;
 
 public class Utilities {
@@ -89,6 +90,18 @@ public class Utilities {
     public boolean loadBoolSettings(String key) {
         SharedPreferences sharedPref =PreferenceManager.getDefaultSharedPreferences(this.context);
         return sharedPref.getBoolean(key, false);
+    }
+
+
+    public static String getValueOf(Object clazz, String lookingForValue) throws Exception {
+
+        Field field = clazz.getClass().getField(lookingForValue);
+        Class clazzType = field.getType();
+        if (clazzType.toString().equals("double"))
+            return String.valueOf(field.getDouble(clazz));
+        else if (clazzType.toString().equals("int"))
+            return String.valueOf(field.getInt(clazz));
+        return (String) field.get(clazz);
     }
 
 }

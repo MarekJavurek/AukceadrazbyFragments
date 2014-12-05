@@ -11,11 +11,15 @@ import android.widget.TextView;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
+import biz.netdevelopers.aukceadrazbyfragments.Utilities;
 import biz.netdevelopers.aukceadrazbyfragments.activity.AuctionListActivity;
 import biz.netdevelopers.aukceadrazbyfragments.interfaces.INotifyTaskCompleted;
 import biz.netdevelopers.aukceadrazbyfragments.model.AuctionObject;
 import biz.netdevelopers.aukceadrazbyfragments.R;
+import biz.netdevelopers.aukceadrazbyfragments.model.AuctionObjectReflectionItems;
 import biz.netdevelopers.aukceadrazbyfragments.model.VasmajetekProvider;
 
 public class AuctionDetailFragment extends Fragment implements INotifyTaskCompleted {
@@ -62,15 +66,21 @@ public class AuctionDetailFragment extends Fragment implements INotifyTaskComple
         mItem = list.get(0);
         LinearLayout linearLayout = (LinearLayout) getView().findViewById(R.id.linear_detail_layout);
 
-        TextView txt1 = new TextView(getActivity());
-        txt1.setText("test");
+
+
+        for(Map.Entry<String, String> entry : AuctionObjectReflectionItems.AORI.entrySet())  {
+            TextView txt1 = new TextView(getActivity());
+
+            try {
+                txt1.setText(entry.getKey() + ": " + String.valueOf(Utilities.getValueOf(mItem, entry.getValue())));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            linearLayout.addView(txt1);
+        }
+
 
     }
 
-    public static boolean isGetter(Method method){
-        if(!method.getName().startsWith("get"))      return false;
-        if(method.getParameterTypes().length != 0)   return false;
-        if(void.class.equals(method.getReturnType()))return false;
-        return true;
-    }
 }

@@ -13,11 +13,11 @@ public class AuctionObject {
 
     // zakladni parametry
 
-    private int offer_id; // offer_id: 94345,
-    private String advert_name; // advert_name: "Rodinný dům ve Vraném nad Vltavou okres Praha - západ",
-    private int advert_type; // advert_type: 2,
-    private String locality_nuts; // locality_nuts: "CZ0",
-    private int advert_price; // advert_price: 990000,
+    public int offer_id; // offer_id: 94345,
+    public String advert_name; // advert_name: "Rodinný dům ve Vraném nad Vltavou okres Praha - západ",
+    public int advert_type; // advert_type: 2,
+    public String locality_nuts; // locality_nuts: "CZ0",
+    public int advert_price; // advert_price: 990000,
 
     public int getOffer_id() {
         return offer_id;
@@ -125,10 +125,10 @@ public class AuctionObject {
     public String expert_opinion; // expert_opinion: null,
 
     @SerializedName("file")
-    public String file; // file: null,
+    public String[] file; // file: null,
 
     @SerializedName("file_caption")
-    public String file_caption; // file_caption: null,
+    public String[] file_caption; // file_caption: null,
 
     @SerializedName("image")
     public String[] image; // image: null,
@@ -439,19 +439,19 @@ public class AuctionObject {
         this.expert_opinion = expert_opinion;
     }
 
-    public String getFile() {
+    public String[] getFile() {
         return file;
     }
 
-    public void setFile(String file) {
+    public void setFile(String[] file) {
         this.file = file;
     }
 
-    public String getFile_caption() {
+    public String[] getFile_caption() {
         return file_caption;
     }
 
-    public void setFile_caption(String file_caption) {
+    public void setFile_caption(String[] file_caption) {
         this.file_caption = file_caption;
     }
 
