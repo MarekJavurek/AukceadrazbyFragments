@@ -62,20 +62,9 @@ public class AuctionDetailFragment extends Fragment implements INotifyTaskComple
         mItem = list.get(0);
         LinearLayout linearLayout = (LinearLayout) getView().findViewById(R.id.linear_detail_layout);
 
-        Method[] methods = AuctionObject.class.getMethods();
-        for(Method method : methods){
-            if(isGetter(method)){
-                TextView txt1 = new TextView(getActivity());
-                try {
-                    txt1.setText(String.valueOf(method.invoke(mItem)));
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
-                    e.printStackTrace();
-                }
-                linearLayout.addView(txt1);
-            }
-        }
+        TextView txt1 = new TextView(getActivity());
+        txt1.setText("test");
+
     }
 
     public static boolean isGetter(Method method){
