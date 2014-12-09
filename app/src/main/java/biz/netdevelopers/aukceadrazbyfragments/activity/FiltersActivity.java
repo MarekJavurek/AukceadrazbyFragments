@@ -1,6 +1,7 @@
 package biz.netdevelopers.aukceadrazbyfragments.activity;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -32,6 +33,15 @@ public class FiltersActivity extends Activity {
     public void onClick(View v) {
         String s = "Vybrané typy: " + f_typ.getSelectedItemsAsString() + ", Vybrané kraje: " + f_kraje.getSelectedItemsAsString();
         Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+
+        String caller = getIntent().getStringExtra("caller");
+
+
+        // (AuctionListActivity) caller = getCallingActivity();
+        getCallingActivity();
+
+
+        this.finish();
     }
 
 

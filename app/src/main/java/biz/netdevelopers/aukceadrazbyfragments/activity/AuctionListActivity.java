@@ -127,16 +127,37 @@ implements AuctionListFragment.Callbacks, INotifyTaskCompleted {
         } else if (id == R.id.action_setting) {
 
             Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
+            //startActivity(intent);
+            startActivityForResult(intent, PICK_CONTACT_REQUEST);
 
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
+    static final int PICK_CONTACT_REQUEST = 1;  // The request code
+
     @Override
     public void DataChanged(ArrayList<AuctionObject> list) {
         ListFragment lf = ((ListFragment) getFragmentManager().findFragmentById(R.id.auction_list));
         ((BaseAdapter) lf.getListAdapter()).notifyDataSetChanged();
     }
+
+    public void Filtered(ArrayList<AuctionObject> list) {
+        ListFragment lf = ((ListFragment) getFragmentManager().findFragmentById(R.id.auction_list));
+        ((BaseAdapter) lf.getListAdapter()).notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check which request we're responding to
+        if (requestCode == PICK_CONTACT_REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                Utilities u = new Utilities(this);
+                u.TL("result");
+            }
+        }
+    }
+
 }
