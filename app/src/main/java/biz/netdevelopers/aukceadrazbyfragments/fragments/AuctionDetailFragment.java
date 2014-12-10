@@ -7,13 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
 import biz.netdevelopers.aukceadrazbyfragments.Utilities;
 import biz.netdevelopers.aukceadrazbyfragments.activity.AuctionListActivity;
 import biz.netdevelopers.aukceadrazbyfragments.interfaces.INotifyTaskCompleted;

@@ -60,7 +60,6 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
-                android:onClick="onClick"
                 android:text="Použít filtry"
                 android:textAlignment="center" />
 
@@ -70,7 +69,6 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
-                android:onClick="onClickCancel"
                 android:text="Storno"
                 android:textAlignment="center" />
 

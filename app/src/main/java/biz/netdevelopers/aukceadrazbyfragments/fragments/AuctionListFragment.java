@@ -5,10 +5,7 @@ import android.os.Bundle;
 import android.app.ListFragment;
 import android.view.View;
 import android.widget.ListView;
-
-
 import java.util.ArrayList;
-
 import biz.netdevelopers.aukceadrazbyfragments.model.AuctionObject;
 import biz.netdevelopers.aukceadrazbyfragments.adapters.AuctionAdapter;
 import biz.netdevelopers.aukceadrazbyfragments.model.VasmajetekProvider;

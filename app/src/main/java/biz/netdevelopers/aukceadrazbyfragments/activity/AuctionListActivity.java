@@ -10,12 +10,14 @@ import android.view.MenuItem;
 import android.widget.BaseAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import biz.netdevelopers.aukceadrazbyfragments.R;
 import biz.netdevelopers.aukceadrazbyfragments.Utilities;
 import biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionDetailFragment;
 import biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionListFragment;
+import biz.netdevelopers.aukceadrazbyfragments.fragments.FilterFragmentDialog;
 import biz.netdevelopers.aukceadrazbyfragments.interfaces.INotifyTaskCompleted;
 import biz.netdevelopers.aukceadrazbyfragments.model.AuctionObject;
 import biz.netdevelopers.aukceadrazbyfragments.model.VasmajetekProvider;
@@ -120,22 +122,24 @@ implements AuctionListFragment.Callbacks, INotifyTaskCompleted {
         int id = item.getItemId();
         if (id == R.id.action_filters) {
 
-            Intent intent = new Intent(this, FiltersActivity.class);
-            startActivity(intent);
+            //Intent intent = new Intent(this, FiltersActivity.class);
+            //startActivity(intent);
+            FilterFragmentDialog yourDialogFragment = FilterFragmentDialog.newInstance(1);
+            yourDialogFragment.show(getFragmentManager().beginTransaction(), "FilterFragmentDialog");
 
             return true;
         } else if (id == R.id.action_setting) {
 
             Intent intent = new Intent(this, SettingsActivity.class);
-            //startActivity(intent);
-            startActivityForResult(intent, PICK_CONTACT_REQUEST);
+            startActivity(intent);
 
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    static final int PICK_CONTACT_REQUEST = 1;  // The request code
+    public static List<String> FILTERS_PICK_kraje = new ArrayList<>();
+    public static List<String> FILTERS_PICK_typy = new ArrayList<>();
 
     @Override
     public void DataChanged(ArrayList<AuctionObject> list) {
@@ -148,16 +152,6 @@ implements AuctionListFragment.Callbacks, INotifyTaskCompleted {
         ((BaseAdapter) lf.getListAdapter()).notifyDataSetChanged();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // Check which request we're responding to
-        if (requestCode == PICK_CONTACT_REQUEST) {
-            // Make sure the request was successful
-            if (resultCode == RESULT_OK) {
-                Utilities u = new Utilities(this);
-                u.TL("result");
-            }
-        }
+    public void UpdateFilters(List<String> selectedStrings, List<String> selectedStrings1) {
     }
-
 }
