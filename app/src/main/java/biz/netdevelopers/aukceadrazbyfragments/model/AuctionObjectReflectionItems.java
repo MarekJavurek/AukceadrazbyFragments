@@ -34,12 +34,12 @@ public class AuctionObjectReflectionItems {
         AORI.put("Typ budovy", "building_type");
         AORI.put("Stav", "condition");
         AORI.put("Slovní popis nabízeného předmětu", "description");
-        AORI.put("", "estate_area");
+        //AORI.put("", "estate_area");
         AORI.put("Plocha pozemku (m2)", "expert_opinion");
-        AORI.put("", "file");
-        AORI.put("", "file_caption");
-        AORI.put("", "image");
-        AORI.put("", "image_caption");
+        //AORI.put("", "file");
+        //AORI.put("", "file_caption");
+        //AORI.put("", "image");
+        //AORI.put("", "image_caption");
         AORI.put("aukce?", "is_auction");
         AORI.put("elektronické aukce?", "is_eauction");
         AORI.put("Lokalita", "locality_city");
@@ -58,7 +58,7 @@ public class AuctionObjectReflectionItems {
         AORI.put("Minimální výše příhozu", "price_minimum_bid");
         AORI.put("Název navrhovatele", "proposer_name");
         AORI.put("id generované systémem na reality.cz", "realitycz_id");
-        AORI.put("", "result_hash");
+        //AORI.put("", "result_hash");
         AORI.put("Kod adresniho mista z ciselniku systemu ruian.cz", "ruian");
         AORI.put("Kod okresu z ciselniku systemu ruian.cz", "ruian_district");
         AORI.put("Kod obce z ciselniku systemu ruian.cz", "ruian_municipality");
@@ -69,14 +69,14 @@ public class AuctionObjectReflectionItems {
         AORI.put("jméno prodejce (instituce)", "seller_name");
         AORI.put("telefon kontaktní osoby", "seller_phone");
         AORI.put("vnitrni uzitna plocha", "usable_area");
-        AORI.put("", "vm_auction_dateplace_tour");
-        AORI.put("", "vm_conditions");
-        AORI.put("", "vm_debtor");
-        AORI.put("", "vm_id");
-        AORI.put("", "vm_multiauction");
+        //AORI.put("", "vm_auction_dateplace_tour");
+        //AORI.put("", "vm_conditions");
+        //AORI.put("", "vm_debtor");
+        //AORI.put("", "vm_id");
+        //AORI.put("", "vm_multiauction");
         AORI.put("Url adresa nabídky", "vm_url_info");
         AORI.put("Zdroj (pokud byla dražba odněkud stažena..)", "vm_url_source");
-        AORI.put("", "zinfo_billing");
+        //AORI.put("", "zinfo_billing");
 
 
     }
