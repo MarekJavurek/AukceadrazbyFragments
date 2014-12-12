@@ -1,22 +1,23 @@
 package biz.netdevelopers.aukceadrazbyfragments.fragments;
 
-import android.os.Bundle;
 import android.app.Fragment;
+import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
+
+import biz.netdevelopers.aukceadrazbyfragments.DownloadImageTask;
+import biz.netdevelopers.aukceadrazbyfragments.R;
 import biz.netdevelopers.aukceadrazbyfragments.Utilities;
-import biz.netdevelopers.aukceadrazbyfragments.activity.AuctionListActivity;
 import biz.netdevelopers.aukceadrazbyfragments.interfaces.INotifyTaskCompleted;
 import biz.netdevelopers.aukceadrazbyfragments.model.AuctionObject;
-import biz.netdevelopers.aukceadrazbyfragments.R;
 import biz.netdevelopers.aukceadrazbyfragments.model.AuctionObjectReflectionItems;
 import biz.netdevelopers.aukceadrazbyfragments.model.VasmajetekProvider;
 
@@ -33,40 +34,50 @@ public class AuctionDetailFragment extends Fragment implements INotifyTaskComple
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (getArguments().containsKey(ARG_ITEM_ID)) {
-
-            id = getArguments().getString(ARG_ITEM_ID);
-
-            VasmajetekProvider vmp = new VasmajetekProvider(getActivity(), this);
-            vmp.getOne(id);
-
-            //mItem = VasmajetekProvider.ITEM_MAP.get(id);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_auction_detail, container, false);
 
-        // Show the dummy content as text in a TextView.
-        /*
-        if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.auction_detail_name)).setText(mItem.getAdvert_name());
-            ((TextView) rootView.findViewById(R.id.auction_detail_price)).setText(String.valueOf(mItem.getAdvert_price()));
+        Utilities u = new Utilities(getActivity());
+
+        View rootView;
+
+        if (u.isOnline()) {
+            if (getArguments().containsKey(ARG_ITEM_ID)) {
+
+                id = getArguments().getString(ARG_ITEM_ID);
+
+                VasmajetekProvider vmp = new VasmajetekProvider(getActivity(), this);
+                vmp.getOne(id);
+
+                //mItem = VasmajetekProvider.ITEM_MAP.get(id);
+            }
+
+            rootView = inflater.inflate(R.layout.fragment_auction_detail, container, false);
+
+        } else {
+            rootView = inflater.inflate(R.layout.layout_no_connection, container, false);
         }
-        */
+
         return rootView;
     }
+
 
     @Override
     public void DataChanged(ArrayList<AuctionObject> list) {
         mItem = list.get(0);
         LinearLayout linearLayout = (LinearLayout) getView().findViewById(R.id.linear_detail_layout);
 
+        if (mItem != null) {
 
+            updateImages();
 
-        for(Map.Entry<String, String> entry : AuctionObjectReflectionItems.AORI.entrySet())  {
+            ((TextView) linearLayout.findViewById(R.id.d_nazev)).setText(mItem.getAdvert_name());
+            ((TextView) linearLayout.findViewById(R.id.d_cena)).setText("Vyvolávací cena: " + String.valueOf(mItem.getAdvert_price()));
+        }
+
+        for (Map.Entry<String, String> entry : AuctionObjectReflectionItems.AORI.entrySet()) {
             TextView txt1 = new TextView(getActivity());
 
             try {
@@ -76,6 +87,40 @@ public class AuctionDetailFragment extends Fragment implements INotifyTaskComple
             }
 
             linearLayout.addView(txt1);
+        }
+
+
+    }
+
+    private void updateImages() {
+        LinearLayout img_linearLayout = (LinearLayout) getView().findViewById(R.id.d_obrazky);
+
+        if (mItem.getImage() != null) {
+
+            for (int i = 0; i < mItem.getImage().length; i++) {
+
+
+                DownloadImageTask dit = new DownloadImageTask(getActivity(), img_linearLayout) {
+
+                    @Override
+                    protected void onPostExecute(Bitmap result) {
+                        super.onPostExecute(result);
+
+                        if (result != null) {
+                            ImageView img = new ImageView(getActivity());
+
+                            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                            lp.setMargins(0, 0, 10, 0);
+                            img.setLayoutParams(lp);
+
+                            img.setImageBitmap(Utilities.getResizedBitmap(result, 600, 600));
+                            id.addView(img);
+                        }
+                    }
+                };
+                dit.execute(mItem.getImage()[i]);
+
+            }
         }
 
 

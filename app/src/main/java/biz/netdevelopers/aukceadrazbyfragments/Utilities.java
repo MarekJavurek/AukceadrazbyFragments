@@ -3,6 +3,10 @@ package biz.netdevelopers.aukceadrazbyfragments;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.RectF;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
@@ -11,10 +15,14 @@ import android.widget.Toast;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;import java.lang.Exception;import java.lang.String;import java.lang.StringBuilder;
 import java.lang.reflect.Field;
+import java.net.HttpURLConnection;
 import java.util.Random;
+
+import javax.net.ssl.HttpsURLConnection;
 
 public class Utilities {
 
@@ -102,6 +110,39 @@ public class Utilities {
         else if (clazzType.toString().equals("int"))
             return String.valueOf(field.getInt(clazz));
         return (String) field.get(clazz);
+    }
+
+    public static Bitmap getBitmapFromURL(String src) {
+        try {
+            java.net.URL url = new java.net.URL(src);
+            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+            connection.setDoInput(true);
+            connection.connect();
+            InputStream input = connection.getInputStream();
+            Bitmap myBitmap = BitmapFactory.decodeStream(input);
+            return myBitmap;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static Bitmap getResizedBitmap(Bitmap bm, int newHeight, int newWidth) {
+
+        int width = bm.getWidth();
+
+        int height = bm.getHeight();
+
+        float scaleWidth = ((float) newWidth) / width;
+
+        float scaleHeight = ((float) newHeight) / height;
+
+        Matrix matrix = new Matrix();
+
+        matrix.setRectToRect(new RectF(0, 0, bm.getWidth(), bm.getHeight()), new RectF(0, 0, newWidth, newHeight), Matrix.ScaleToFit.CENTER);
+        return Bitmap.createBitmap(bm, 0, 0, bm.getWidth(), bm.getHeight(), matrix, true);
+
+
     }
 
 }

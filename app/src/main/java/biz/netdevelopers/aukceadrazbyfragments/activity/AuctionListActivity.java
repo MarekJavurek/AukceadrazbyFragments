@@ -8,6 +8,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.BaseAdapter;
+import android.widget.ListAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -153,5 +155,12 @@ implements AuctionListFragment.Callbacks, INotifyTaskCompleted {
     }
 
     public void UpdateFilters(List<String> selectedStrings, List<String> selectedStrings1) {
+        ListFragment lf = ((ListFragment) getFragmentManager().findFragmentById(R.id.auction_list));
+
+        //((ListAdapter) lf.getListAdapter()).
+        ((BaseAdapter) lf.getListAdapter()).notifyDataSetChanged();
+
+
+        Toast.makeText(this, selectedStrings.toString(), Toast.LENGTH_LONG).show();
     }
 }

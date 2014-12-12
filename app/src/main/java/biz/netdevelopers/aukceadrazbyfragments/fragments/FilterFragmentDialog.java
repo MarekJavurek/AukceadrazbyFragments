@@ -58,7 +58,6 @@ public class FilterFragmentDialog extends DialogFragment implements View.OnClick
 
     public void onClick(View v) {
         String s = "Vybrané typy: " + f_typ.getSelectedItemsAsString() + ", Vybrané kraje: " + f_kraje.getSelectedItemsAsString();
-        Toast.makeText(getActivity(), s, Toast.LENGTH_LONG).show();
 
         AuctionListActivity fa = (AuctionListActivity) getActivity();
         fa.UpdateFilters(f_kraje.getSelectedStrings(), f_typ.getSelectedStrings());

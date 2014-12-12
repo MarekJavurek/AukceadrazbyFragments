@@ -6,6 +6,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.io.File;
 import java.lang.Exception;
 import java.lang.Integer;
 import java.lang.Override;
@@ -13,6 +15,7 @@ import java.lang.String;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -110,7 +113,16 @@ public class VasmajetekProvider {
 
 
         } else {
-            String lastUpdate = "?";
+
+
+            File file = new File(context.getFilesDir() + "all.json");
+            Date lastModified = null;
+
+            if (file.exists()) {
+                lastModified = new Date(file.lastModified());
+            }
+
+            String lastUpdate = lastModified.toString();
             new Utilities(this.context).TL("Nejsi online, poslední aktualizace dat: " + lastUpdate);
             // TODO pokud nejsi online nacti data od posledne
 
