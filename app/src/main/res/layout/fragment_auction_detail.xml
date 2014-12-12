@@ -51,39 +51,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Datum:"
+                        android:text="Datum konání aukce:"
                         android:layout_gravity="center"
                         android:textColor="#088da5"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/d_datum"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="xxxxxx"
-                        android:layout_gravity="center"
-                        android:textColor="#088da5"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/background">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Lokalita"
-                        android:layout_gravity="center"
-                        android:textColor="#088da5"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="xxxxxx"
                         android:layout_gravity="center"
                         android:textColor="#088da5"
                         android:textSize="15sp" />
@@ -99,64 +75,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Typ:"
+                        android:text="Detailní popis:"
                         android:layout_gravity="center"
                         android:textColor="#088da5"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/d_popis"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="xxxxxx"
-                        android:layout_gravity="center"
-                        android:textColor="#088da5"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/background">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Prodejce:"
-                        android:layout_gravity="center"
-                        android:textColor="#088da5"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="xxxxxx"
-                        android:layout_gravity="center"
-                        android:textColor="#088da5"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/background">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Typ nabídky:"
-                        android:layout_gravity="center"
-                        android:textColor="#088da5"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="xxxxxx"
-                        android:layout_gravity="center"
+                        android:layout_gravity="left"
                         android:textColor="#088da5"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -165,6 +93,7 @@
 
 
             <HorizontalScrollView
+                android:layout_marginTop="5dp"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

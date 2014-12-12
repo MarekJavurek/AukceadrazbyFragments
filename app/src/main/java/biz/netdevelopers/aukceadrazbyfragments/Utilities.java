@@ -47,6 +47,13 @@ public class Utilities {
         return netInfo.getType() == ConnectivityManager.TYPE_MOBILE;
     }
 
+    // je uzivatel pripojen pres wifi
+    public boolean IsWiFi() {
+        ConnectivityManager cm = (ConnectivityManager) this.context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo.getType() == ConnectivityManager.TYPE_WIFI;
+    }
+
     // funkce na rychlejsi vytvoreni toastmessage
     public void TL(String msg) {
         Toast.makeText(this.context, msg, Toast.LENGTH_LONG).show();

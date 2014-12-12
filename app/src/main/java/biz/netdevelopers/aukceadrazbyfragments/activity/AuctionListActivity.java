@@ -122,6 +122,7 @@ implements AuctionListFragment.Callbacks, INotifyTaskCompleted {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        /*
         if (id == R.id.action_filters) {
 
             //Intent intent = new Intent(this, FiltersActivity.class);
@@ -130,7 +131,9 @@ implements AuctionListFragment.Callbacks, INotifyTaskCompleted {
             yourDialogFragment.show(getFragmentManager().beginTransaction(), "FilterFragmentDialog");
 
             return true;
-        } else if (id == R.id.action_setting) {
+        } else
+        */
+        if (id == R.id.action_setting) {
 
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);

@@ -33,7 +33,7 @@ public class AuctionObjectReflectionItems {
         AORI.put("Adresa prohlídky před dražbou ", "auction_tour_address");
         AORI.put("Typ budovy", "building_type");
         AORI.put("Stav", "condition");
-        AORI.put("Slovní popis nabízeného předmětu", "description");
+        //AORI.put("Slovní popis nabízeného předmětu", "description");
         //AORI.put("", "estate_area");
         AORI.put("Plocha pozemku (m2)", "expert_opinion");
         //AORI.put("", "file");

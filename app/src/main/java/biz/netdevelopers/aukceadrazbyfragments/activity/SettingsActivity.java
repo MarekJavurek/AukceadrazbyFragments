@@ -40,6 +40,8 @@ public class SettingsActivity extends Activity {
         editor.commit();
 
         u.saveBoolSettings("nastaveni_3g", s.isChecked());
+
+        this.finish();
     }
 
     public void onClickCancel(View v) {
