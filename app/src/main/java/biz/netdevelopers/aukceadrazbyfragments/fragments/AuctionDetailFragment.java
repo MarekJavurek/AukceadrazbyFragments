@@ -1,9 +1,12 @@
 package biz.netdevelopers.aukceadrazbyfragments.fragments;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -93,6 +96,24 @@ public class AuctionDetailFragment extends Fragment implements INotifyTaskComple
             ((TextView) linearLayout.findViewById(R.id.d_cena)).setText("Vyvolávací cena: " + format.format(Double.valueOf(mItem.getAdvert_price())));
             ((TextView) linearLayout.findViewById(R.id.d_datum)).setText(mItem.getAuction_date());
             ((TextView) linearLayout.findViewById(R.id.d_popis)).setText(mItem.getDescription());
+
+            TextView urlt = (TextView) linearLayout.findViewById(R.id.d_url);
+
+            urlt.setText("URL: " + mItem.getVm_url_info());
+            urlt.setPaintFlags(urlt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+            urlt.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    String url = mItem.getVm_url_info();
+
+                    if (!url.startsWith("http://") && !url.startsWith("https://"))
+                        url = "http://" + url;
+
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(browserIntent);
+                }
+            });
+
         }
 
         for (Map.Entry<String, String> entry : AuctionObjectReflectionItems.AORI.entrySet()) {
@@ -117,10 +138,11 @@ public class AuctionDetailFragment extends Fragment implements INotifyTaskComple
     public void onDestroyView() {
         super.onDestroyView();
 
-        for (DownloadImageTask a : dtast) {
-            a.cancel(true);
+        if(null != dtast) {
+            for (DownloadImageTask a : dtast) {
+                a.cancel(true);
+            }
         }
-
     }
 
     ArrayList<DownloadImageTask> dtast;

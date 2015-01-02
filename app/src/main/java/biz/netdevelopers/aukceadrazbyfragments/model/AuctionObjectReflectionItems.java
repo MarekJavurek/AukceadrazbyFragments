@@ -74,7 +74,7 @@ public class AuctionObjectReflectionItems {
         //AORI.put("", "vm_debtor");
         //AORI.put("", "vm_id");
         //AORI.put("", "vm_multiauction");
-        AORI.put("Url adresa nabídky", "vm_url_info");
+        //AORI.put("Url adresa nabídky", "vm_url_info");
         AORI.put("Zdroj (pokud byla dražba odněkud stažena..)", "vm_url_source");
         //AORI.put("", "zinfo_billing");
 

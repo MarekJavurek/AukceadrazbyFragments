@@ -53,6 +53,7 @@ public class AuctionAdapter extends ArrayAdapter<AuctionObject> {
         TextView A_price = (TextView) convertView.findViewById(R.id.auction_price);
         TextView A_kraj = (TextView) convertView.findViewById(R.id.auction_kraj);
         TextView A_typ = (TextView) convertView.findViewById(R.id.auction_type);
+        //TextView A_url = (TextView) convertView.findViewById(R.id.auction_url);
 
         NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("cs", "CZ"));
 
@@ -61,6 +62,7 @@ public class AuctionAdapter extends ArrayAdapter<AuctionObject> {
         A_price.setText("Cena: " + format.format(Double.valueOf(auction.getAdvert_price())));
         A_kraj.setText("Kraj: " + vyslKraj);
         A_typ.setText("Typ: " + vyslTyp);
+        //A_typ.setText("URL: " + auction.getVm_url_info());
 
         return convertView;
     }

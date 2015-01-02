@@ -107,6 +107,15 @@
 
             </HorizontalScrollView>
 
+            <TextView
+                android:id="@+id/d_url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+
+                android:textColor="#ff000fa5"
+                android:textSize="15sp" />
+
 
         </LinearLayout>
     </ScrollView>
