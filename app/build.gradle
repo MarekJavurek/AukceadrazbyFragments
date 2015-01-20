@@ -8,7 +8,7 @@ android {
         applicationId "biz.netdevelopers.aukceadrazbyfragments"
         minSdkVersion 16
         targetSdkVersion 21
-        versionCode 3
+        versionCode 4
         versionName "1.2"
     }
     buildTypes {
@@ -23,9 +23,9 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     // compile 'com.android.support:support-v4:21.0.0'
-    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.android.support:appcompat-v7:21.+'
     // google JSON knihovna
     compile files('libs/gson-2.3.1.jar')
-    // google mapy
-    compile 'com.google.android.gms:play-services:6.1.71'
+    // google mapy + admob
+    compile 'com.google.android.gms:play-services:6.+'
 }
