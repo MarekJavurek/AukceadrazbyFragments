@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".AuctionDetailFragment"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
     android:padding="10dp"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 
     <ScrollView
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/linearLayoutThatDoesNotScroll"
+        android:id="@+id/scrollDetail"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -113,25 +117,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-
                 android:textColor="#ff000fa5"
                 android:textSize="15sp" />
-
-
-
-
-
-            <fragment
-                android:id="@+id/adFragment"
-                android:name="biz.netdevelopers.aukceadrazbyfragments.fragments.AdFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-
-
 
         </LinearLayout>
     </ScrollView>
 
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayoutThatDoesNotScroll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" >
+
+        <fragment
+            android:id="@+id/adFragment"
+            android:name="biz.netdevelopers.aukceadrazbyfragments.fragments.AdFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

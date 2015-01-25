@@ -8,7 +8,7 @@ android {
         applicationId "biz.netdevelopers.aukceadrazbyfragments"
         minSdkVersion 16
         targetSdkVersion 21
-        versionCode 4
+        versionCode 5
         versionName "1.2"
     }
     buildTypes {
