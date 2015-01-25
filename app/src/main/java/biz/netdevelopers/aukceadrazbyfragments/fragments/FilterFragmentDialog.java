@@ -12,7 +12,7 @@ import biz.netdevelopers.aukceadrazbyfragments.UI.MultiSelectionSpinner;
 import biz.netdevelopers.aukceadrazbyfragments.activity.AuctionListActivity;
 import biz.netdevelopers.aukceadrazbyfragments.activity.FiltersActivity;
 
-public class FilterFragmentDialog extends DialogFragment implements View.OnClickListener {
+public class FilterFragmentDialog extends DialogFragment {
 
     MultiSelectionSpinner f_kraje;
     MultiSelectionSpinner f_typ;
@@ -20,7 +20,8 @@ public class FilterFragmentDialog extends DialogFragment implements View.OnClick
 
     public static FilterFragmentDialog newInstance(int num) {
         FilterFragmentDialog f = new FilterFragmentDialog();
-        f.setCancelable(false);
+        f.setCancelable(true);
+
         return f;
     }
 
@@ -28,13 +29,15 @@ public class FilterFragmentDialog extends DialogFragment implements View.OnClick
     public void onStart() {
         super.onStart();
 
-        String[] kunda = {"Hl. m. Praha", "Středočeský", "Jihočeský", "Plzeňský", "Ústecký", "Královéhradecký", "Vysočina", "Olomoucký", "Moravskoslezský"};
+        String[] kraj = {"Hl. m. Praha", "Středočeský", "Jihočeský", "Plzeňský", "Ústecký", "Královéhradecký", "Vysočina", "Olomoucký", "Moravskoslezský"};
         f_kraje = (MultiSelectionSpinner) getView().findViewById(R.id.f_kraje);
-        f_kraje.setItems(kunda);
+        f_kraje.setItems(kraj);
+        f_kraje.setSelection(5);
 
-        String[] array = {"Aukce", "Dražba", "Prodej"};
+        String[] typ = {"Aukce", "Dražba", "Prodej"};
         f_typ = (MultiSelectionSpinner) getView().findViewById(R.id.f_typ);
-        f_typ.setItems(array);
+        f_typ.setItems(typ);
+
 
 
     }
@@ -46,22 +49,27 @@ public class FilterFragmentDialog extends DialogFragment implements View.OnClick
 
         View view = inflater.inflate(R.layout.activity_filters, null);
 
-        Button b = (Button) view.findViewById(R.id.button1);
-        b.setOnClickListener(this);
+        Button apply = (Button) view.findViewById(R.id.button1);
+        Button cancel = (Button) view.findViewById(R.id.button2);
+
+        apply.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // String s = "Vybrané typy: " + f_typ.getSelectedItemsAsString() + ", Vybrané kraje: " + f_kraje.getSelectedItemsAsString();
+
+                AuctionListActivity fa = (AuctionListActivity) getActivity();
+                fa.UpdateFilters(f_kraje.getSelectedStrings(), f_typ.getSelectedStrings());
+
+                dismiss();
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
 
         return view;
     }
 
-    public void onClickCancel(View v) {
-        this.dismiss();
-    }
-
-    public void onClick(View v) {
-        String s = "Vybrané typy: " + f_typ.getSelectedItemsAsString() + ", Vybrané kraje: " + f_kraje.getSelectedItemsAsString();
-
-        AuctionListActivity fa = (AuctionListActivity) getActivity();
-        fa.UpdateFilters(f_kraje.getSelectedStrings(), f_typ.getSelectedStrings());
-
-        this.dismiss();
-    }
 }
