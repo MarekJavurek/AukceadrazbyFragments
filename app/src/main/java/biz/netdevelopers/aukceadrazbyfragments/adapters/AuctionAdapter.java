@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -19,11 +20,17 @@ import biz.netdevelopers.aukceadrazbyfragments.R;
 import biz.netdevelopers.aukceadrazbyfragments.model.Kraje;
 import biz.netdevelopers.aukceadrazbyfragments.model.Typy;
 
-public class AuctionAdapter extends ArrayAdapter<AuctionObject> {
+public class AuctionAdapter extends ArrayAdapter<AuctionObject> implements Filterable {
+
+
+
+    private ArrayList<AuctionObject>originalData = null;
+    private ArrayList<AuctionObject>filteredData = null;
 
     public AuctionAdapter(Context context, ArrayList<AuctionObject> users) {
         super(context, 0, users);
     }
+
 
 
     @Override
