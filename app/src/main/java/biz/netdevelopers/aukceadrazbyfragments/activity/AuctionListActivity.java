@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.BaseAdapter;
@@ -40,7 +41,7 @@ import biz.netdevelopers.aukceadrazbyfragments.model.VasmajetekProvider;
  * {@link biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionListFragment.Callbacks} interface
  * to listen for item selections.
  */
-public class AuctionListActivity extends ActionBarActivity // ActionBarActivity
+public class AuctionListActivity extends AppCompatActivity // ActionBarActivity
 implements AuctionListFragment.Callbacks, INotifyTaskCompleted {
 
     /**

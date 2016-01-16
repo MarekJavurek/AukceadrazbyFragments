@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.app.Activity;
 
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -21,7 +22,7 @@ import biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionDetailFragment;
  * This activity is mostly just a 'shell' activity containing nothing
  * more than a {@link biz.netdevelopers.aukceadrazbyfragments.fragments.AuctionDetailFragment}.
  */
-public class AuctionDetailActivity extends ActionBarActivity {
+public class AuctionDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
